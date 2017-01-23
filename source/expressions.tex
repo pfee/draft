@@ -2171,8 +2171,8 @@ void f1(int i) {
   auto m1 = [=]{
     int const M = 30;
     auto m2 = [i]{
-      int x[N][M];              // OK: \tcode{N} and \tcode{M} are not odr-used
-      x[0][0] = i;              // OK: \tcode{i} is explicitly captured by \tcode{m2} and implicitly captured by \tcode{m1}
+      int x[N][M];          // OK: \tcode{N} and \tcode{M} are not odr-used
+      x[0][0] = i;          // OK: \tcode{i} is explicitly captured by \tcode{m2} and implicitly captured by \tcode{m1}
     };
   };
   struct s1 {
@@ -2181,12 +2181,12 @@ void f1(int i) {
       int m = n*n;
       int j = 40;
       auto m3 = [this,m] {
-        auto m4 = [&,j] {       // error: \tcode{j} not odr-usable due to intervening lambda \tcode{m3}
-          int x = n;            // error: \tcode{n} is odr-used but not odr-usable due to intervening lambda \tcode{m3}
-          x += m;               // OK: \tcode{m} implicitly captured by \tcode{m4} and explicitly captured by \tcode{m3}
-          x += i;               // error: \tcode{i} is odr-used but not odr-usable
-                                // due to intervening function and class scopes
-          x += f;               // OK: \tcode{this} captured implicitly by \tcode{m4} and explicitly by \tcode{m3}
+        auto m4 = [&,j] {   // error: \tcode{j} not odr-usable due to intervening lambda \tcode{m3}
+          int x = n;        // error: \tcode{n} is odr-used but not odr-usable due to intervening lambda \tcode{m3}
+          x += m;           // OK: \tcode{m} implicitly captured by \tcode{m4} and explicitly captured by \tcode{m3}
+          x += i;           // error: \tcode{i} is odr-used but not odr-usable
+                            // due to intervening function and class scopes
+          x += f;           // OK: \tcode{this} captured implicitly by \tcode{m4} and explicitly by \tcode{m3}
         };
       };
     }
@@ -2204,7 +2204,7 @@ struct s2 {
   }
   auto g() {
     return [] {
-      return [*this] { };       // error: \tcode{*this} not captured by outer \grammarterm{lambda-expression}
+      return [*this] { };   // error: \tcode{*this} not captured by outer \grammarterm{lambda-expression}
     }();
   }
 };
