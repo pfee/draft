@@ -560,17 +560,19 @@ the read-modify-write operation.
 Implementations should make atomic stores visible to atomic loads within a reasonable
 amount of time.
 
-\indexlibraryglobal{kill_dependency}%
+\begin{indexed}{\indexlibraryglobal{kill_dependency}}
 \begin{itemdecl}
 template<class T>
   T kill_dependency(T y) noexcept;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
 \effects
-The argument does not carry a dependency to the return
-value\iref{intro.multithread}.
+The argument does not
+\deflinkx{carry a dependency}{carries a dependency}{intro.multithread}
+to the return value.
 
 \pnum
 \returns

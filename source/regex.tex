@@ -12,7 +12,7 @@ searching.
 
 \pnum
 The following subclauses describe a basic regular expression class template and its
-traits that can handle char-like\iref{strings.general} template arguments,
+traits that can handle \deflinkx{char-like}{char-like types}{strings.general} template arguments,
 two specializations of this class template that handle sequences of \tcode{char} and \tcode{wchar_t},
 a class template that holds the
 result of a regular expression match, a series of algorithms that allow a character
@@ -116,8 +116,8 @@ defining types and functions for the character container
 type \tcode{charT}; \tcode{u} is an object of
 type \tcode{X}; \tcode{v} is an object of type \tcode{const
 X}; \tcode{p} is a value of type \tcode{const charT*}; \tcode{I1}
-and \tcode{I2} are input iterators\iref{input.iterators};
-\tcode{F1} and \tcode{F2} are forward iterators\iref{forward.iterators};
+and \tcode{I2} are \link{input iterators}{input.iterators};
+\tcode{F1} and \tcode{F2} are \link{forward iterators}{forward.iterators};
 \tcode{c} is a value of type \tcode{const charT};
 \tcode{s} is an object of type \tcode{X::string_type};
 \tcode{cs} is an object of type \tcode{const X::string_type};
@@ -151,7 +151,7 @@ and \tcode{loc} is an object of type \tcode{X::locale_type}.
   & A type that represents the locale used by the traits class. \indextext{locale}
  \\ \rowsep
 \tcode{X::char_class_type}
- & A bitmask type\iref{bitmask.types}.
+ & A \link{bitmask type}{bitmask.types}.
  & A bitmask type representing a particular character classification.
    \indextext{regular expression traits!\idxcode{char_class_type}}%
    \indextext{\idxcode{char_class_type}!regular expression traits}%
@@ -612,14 +612,14 @@ shall be that used by extended regular expressions in POSIX.
 %
 \tcode{awk} &
 Specifies that the grammar recognized by the regular expression engine
-shall be that used by the utility awk in POSIX.
+shall be that used by the utility \weblink{awk}{http://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html} in POSIX.
 \indextext{\idxcode{awk}}%
 \indexlibrarymember{syntax_option_type}{awk}%
 \\ \rowsep
 %
 \tcode{grep} &
 Specifies that the grammar recognized by the regular expression engine
-shall be that used by the utility grep in POSIX.
+shall be that used by the utility \weblink{grep}{http://pubs.opengroup.org/onlinepubs/9699919799/utilities/grep.html} in POSIX.
 \indextext{\idxcode{grep}}%
 \indexlibrarymember{syntax_option_type}{grep}%
 \\ \rowsep
@@ -662,26 +662,26 @@ if the \tcode{ECMAScript} engine is selected.
 \begin{codeblock}
 namespace std::regex_constants {
   using match_flag_type = @\textit{T2}@;
-  inline constexpr match_flag_type match_default = {};
-  inline constexpr match_flag_type match_not_bol = @\unspec@;
-  inline constexpr match_flag_type match_not_eol = @\unspec@;
-  inline constexpr match_flag_type match_not_bow = @\unspec@;
-  inline constexpr match_flag_type match_not_eow = @\unspec@;
-  inline constexpr match_flag_type match_any = @\unspec@;
-  inline constexpr match_flag_type match_not_null = @\unspec@;
-  inline constexpr match_flag_type match_continuous = @\unspec@;
-  inline constexpr match_flag_type match_prev_avail = @\unspec@;
-  inline constexpr match_flag_type format_default = {};
-  inline constexpr match_flag_type format_sed = @\unspec@;
-  inline constexpr match_flag_type format_no_copy = @\unspec@;
-  inline constexpr match_flag_type format_first_only = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_default}@ = {};
+  inline constexpr match_flag_type @\libentity{match_not_bol}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_not_eol}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_not_bow}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_not_eow}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_any}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_not_null}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_continuous}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{match_prev_avail}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{format_default}@ = {};
+  inline constexpr match_flag_type @\libentity{format_sed}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{format_no_copy}@ = @\unspec@;
+  inline constexpr match_flag_type @\libentity{format_first_only}@ = @\unspec@;
 }
 \end{codeblock}
 
 \pnum
 \indexlibraryglobal{match_flag_type}%
 The type \tcode{match_flag_type} is an
-\impldef{type of \tcode{regex_constants::match_flag_type}} bitmask type\iref{bitmask.types}.
+\impldef{type of \tcode{regex_constants::match_flag_type}} \link{bitmask type}{bitmask.types}.
 The constants of that type, except for \tcode{match_default} and
 \tcode{format_default}, are bitmask elements. The \tcode{match_default} and
 \tcode{format_default} constants are empty bitmasks.
@@ -743,7 +743,7 @@ The expression shall only match a sub-sequence that begins at
 \tcode{match_prev_avail} &
 \verb!--first! is a valid iterator position. When this flag is
 set the flags \tcode{match_not_bol} and \tcode{match_not_bow} shall be ignored by the
-regular expression algorithms\iref{re.alg} and iterators\iref{re.iter}.
+\link{regular expression algorithms}{re.alg} and \link{iterators}{re.iter}.
 \\ \rowsep
 %
 \indexlibraryglobal{format_default}%
@@ -751,7 +751,7 @@ regular expression algorithms\iref{re.alg} and iterators\iref{re.iter}.
 When a regular expression match is to be replaced by a
 new string, the new string shall be constructed using the rules used by
 the ECMAScript replace function in ECMA-262,
-part 15.5.4.11 String.prototype.replace. In
+part 15.5.4.11 \weblink{String.prototype.replace}{https://tc39.github.io/ecma262/#sec-string.prototype.replace}. In
 addition, during search and replace operations all non-overlapping
 occurrences of the regular expression shall be located and replaced, and
 sections of the input that did not match the expression shall be copied
@@ -762,7 +762,7 @@ unchanged to the output string.
 \tcode{format_sed} &
 When a regular expression match is to be replaced by a
 new string, the new string shall be constructed using the rules used by
-the sed utility in POSIX.
+the \weblink{sed}{http://pubs.opengroup.org/onlinepubs/9699919799/utilities/sed.html} utility in POSIX.
 \\ \rowsep
 %
 \indexlibraryglobal{format_no_copy}%
@@ -804,7 +804,7 @@ namespace std::regex_constants {
 \indexlibraryglobal{error_type}%
 \indexlibrarymember{regex_constants}{error_type}%
 The type \tcode{error_type} is an \impldef{type of
-\tcode{regex_constants::error_type}} enumerated type\iref{enumerated.types}.
+\tcode{regex_constants::error_type}} \link{enumerated type}{enumerated.types}.
 Values of type \tcode{error_type} represent the error
 conditions described in \tref{re.err}:
 
@@ -885,10 +885,11 @@ public:
 The class \tcode{regex_error} defines the type of objects thrown as
 exceptions to report errors from the regular expression library.
 
-\indexlibraryctor{regex_error}%
+\begin{indexed}{\indexlibraryctor{regex_error}}
 \begin{itemdecl}
 regex_error(regex_constants::error_type ecode);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -1155,10 +1156,11 @@ The value represented by the digit \tcode{ch} in base
 \end{itemdescr}
 
 \indexlibraryglobal{locale}%
-\indexlibraryglobal{imbue}%
+\begin{indexed}{\indexlibraryglobal{imbue}}
 \begin{itemdecl}
 locale_type imbue(locale_type loc);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -1183,10 +1185,11 @@ otherwise a copy of the last argument passed to \tcode{imbue}.
 \end{itemdescr}
 
 \indexlibraryglobal{locale}%
-\indexlibraryglobal{getloc}%
+\begin{indexed}{\indexlibraryglobal{getloc}}
 \begin{itemdecl}
 locale_type getloc() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3150,12 +3153,13 @@ regex_iterator();
 Constructs an end-of-sequence iterator.
 \end{itemdescr}
 
-\indexlibraryctor{regex_iterator}%
+\begin{indexed}{\indexlibraryctor{regex_iterator}}
 \begin{itemdecl}
 regex_iterator(BidirectionalIterator a, BidirectionalIterator b,
                const regex_type& re,
                regex_constants::match_flag_type m = regex_constants::match_default);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3456,10 +3460,11 @@ The \textit{current match} is \tcode{(*position).prefix()} if \tcode{subs[N] == 
 
 \rSec3[re.tokiter.cnstr]{Constructors}
 
-\indexlibraryctor{regex_token_iterator}%
+\begin{indexed}{\indexlibraryctor{regex_token_iterator}}
 \begin{itemdecl}
 regex_token_iterator();
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum

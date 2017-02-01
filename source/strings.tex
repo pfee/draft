@@ -758,7 +758,6 @@ In all cases,
 (a ``null terminator''\indextext{string!null terminator}),
 and \tcode{size() <= capacity()} is \tcode{true}.
 
-
 \indexlibraryglobal{basic_string}%
 \indexlibrarymember{traits_type}{basic_string}%
 \indexlibrarymember{value_type}{basic_string}%
@@ -1102,8 +1101,9 @@ invalidated by the following uses of that \tcode{basic_string} object:
 \begin{itemize}
 \item Passing as an argument to any standard library function taking a reference to non-const
 \tcode{basic_string} as an argument.\footnote{For example, as an argument to non-member
-functions \tcode{swap()}\iref{string.special},
-\tcode{operator>{}>()}\iref{string.io}, and \tcode{getline()}\iref{string.io}, or as
+functions \liblinkx{\tcode{swap()}}{basic_string!swap}{string.special},
+\liblinkx{\tcode{operator>{}>()}}{basic_string!operator>>}{string.io},
+and \link{\tcode{getline()}}{string.io}, or as
 an argument to \tcode{basic_string::swap()}.}
 
 \item Calling non-const member functions, except
@@ -1385,7 +1385,7 @@ constexpr basic_string& operator=(basic_string&& str)
 \begin{itemdescr}
 \pnum
 \effects
-Move assigns as a sequence container\iref{sequence.reqmts},
+Move assigns as a \link{sequence container}{sequence.reqmts},
 except that iterators, pointers and references may be invalidated.
 
 \pnum
@@ -1689,11 +1689,12 @@ Equivalent to:
 
 \rSec3[string.access]{Element access}
 
-\indexlibrarymember{operator[]}{basic_string}%
+\begin{indexed}{\indexlibrarymember{operator[]}{basic_string}}
 \begin{itemdecl}
 constexpr const_reference operator[](size_type pos) const;
 constexpr reference       operator[](size_type pos);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -1716,11 +1717,12 @@ Nothing.
 Constant time.
 \end{itemdescr}
 
-\indexlibrarymember{at}{basic_string}%
+\begin{indexed}{\indexlibrarymember{at}{basic_string}}
 \begin{itemdecl}
 constexpr const_reference at(size_type pos) const;
 constexpr reference       at(size_type pos);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -1734,11 +1736,12 @@ if
 \tcode{operator[](pos)}.
 \end{itemdescr}
 
-\indexlibrarymember{front}{basic_string}%
+\begin{indexed}{\indexlibrarymember{front}{basic_string}}
 \begin{itemdecl}
 constexpr const charT& front() const;
 constexpr charT& front();
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -1750,11 +1753,12 @@ constexpr charT& front();
 Equivalent to: \tcode{return operator[](0);}
 \end{itemdescr}
 
-\indexlibrarymember{back}{basic_string}%
+\begin{indexed}{\indexlibrarymember{back}{basic_string}}
 \begin{itemdecl}
 constexpr const charT& back() const;
 constexpr charT& back();
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3420,7 +3424,6 @@ return basic_string_view<charT, traits>(lhs) @\placeholder{op}@ basic_string_vie
 
 \rSec3[string.special]{\tcode{swap}}
 
-\indexlibrarymember{swap}{basic_string}%
 \begin{itemdecl}
 template<class charT, class traits, class Allocator>
   constexpr void
@@ -3437,17 +3440,16 @@ Equivalent to \tcode{lhs.swap(rhs)}.
 
 \rSec3[string.io]{Inserters and extractors}
 
-\indexlibrarymember{operator>>}{basic_string}%
 \begin{itemdecl}
 template<class charT, class traits, class Allocator>
   basic_istream<charT, traits>&
-    operator>>(basic_istream<charT, traits>& is, basic_string<charT, traits, Allocator>& str);
+    @\libmember{operator>>}{basic_string}@(basic_istream<charT, traits>& is, basic_string<charT, traits, Allocator>& str);
 \end{itemdecl}
 
 \begin{itemdescr}
 \pnum
 \effects
-Behaves as a formatted input function\iref{istream.formatted.reqmts}.
+Behaves as a \link{formatted input function}{istream.formatted}.
 After constructing a
 \tcode{sentry}
 object, if the sentry converts to \tcode{true}, calls
@@ -3525,7 +3527,7 @@ template<class charT, class traits, class Allocator>
 \begin{itemdescr}
 \pnum
 \effects
-Behaves as an unformatted input function\iref{istream.unformatted},
+Behaves as an \link{unformatted input function}{istream.unformatted},
 except that it does not affect the value returned by subsequent calls to
 \tcode{basic_istream<>::gcount()}.
 After constructing a
@@ -3931,7 +3933,7 @@ The same suffix \tcode{s} is used for \tcode{chrono::duration} literals denoting
 \rSec1[string.view]{String view classes}
 
 \pnum
-The class template \tcode{basic_string_view} describes an object that can refer to a constant contiguous sequence of char-like\iref{strings.general} objects with the first element of the sequence at position zero.
+The class template \tcode{basic_string_view} describes an object that can refer to a constant contiguous sequence of \deflinkx{char-like objects}{char-like object}{strings.general} with the first element of the sequence at position zero.
 In the rest of this subclause, the type of the char-like objects held in a \tcode{basic_string_view} object is designated by \tcode{charT}.
 
 \pnum
@@ -4991,8 +4993,8 @@ template<class charT, class traits>
 \begin{itemdescr}
 \pnum
 \effects
-Behaves as a formatted output
-function\iref{ostream.formatted.reqmts} of \tcode{os}. Forms a character sequence
+Behaves as a \link{formatted output
+function}{ostream.formatted.reqmts} of \tcode{os}. Forms a character sequence
 \tcode{seq}, initially consisting of the elements defined by the range
 \range{str.begin()}{str.end()}. Determines padding for \tcode{seq}
 as described in~\ref{ostream.formatted.reqmts}.
@@ -5252,13 +5254,13 @@ The contents and meaning of the header \libheaderdef{cstring}
 are the same as the C standard library header \libheader{string.h}.
 
 \pnum
-The functions \tcode{strerror} and \tcode{strtok} are not required to avoid data
-races\iref{res.on.data.races}.
+The functions \tcode{strerror} and \tcode{strtok} are not required to
+\link{avoid data races}{res.on.data.races}.
 
 \pnum
 \indextext{signal-safe!\idxcode{memcpy}}%
 \indextext{signal-safe!\idxcode{memmove}}%
-The functions \tcode{memcpy} and \tcode{memmove} are signal-safe\iref{support.signal}.
+The functions \tcode{memcpy} and \tcode{memmove} are \deflinkx{signal-safe}{evaluation!signal-safe}{support.signal}.
 Both functions implicitly create objects\iref{intro.object}
 in the destination region of storage
 immediately prior to copying the sequence of characters to the destination.
@@ -5268,7 +5270,7 @@ immediately prior to copying the sequence of characters to the destination.
 The functions
 \tcode{strchr}, \tcode{strpbrk}, \tcode{strrchr}, \tcode{strstr}, and \tcode{memchr},
 have different signatures in this document,
-but they have the same behavior as in the C standard library\iref{library.c}.
+but they have the same behavior as in the \link{C standard library}{library.c}.
 \end{note}
 
 \xrefc{7.24}
@@ -5435,7 +5437,7 @@ are the same as the C standard library header
 The functions
 \tcode{wcschr}, \tcode{wcspbrk}, \tcode{wcsrchr}, \tcode{wcsstr}, and \tcode{wmemchr}
 have different signatures in this document,
-but they have the same behavior as in the C standard library\iref{library.c}.
+but they have the same behavior as in the \link{C standard library}{library.c}.
 \end{note}
 
 \xrefc{7.29}

@@ -1125,8 +1125,8 @@ deallocation functions\iref{expr.new}.
 A conditional expression with a throw expression as its second or third
 operand keeps the type and value category of the other operand.
 \rationale
-Formerly mandated conversions (lvalue-to-rvalue\iref{conv.lval},
-array-to-pointer\iref{conv.array}, and function-to-pointer\iref{conv.func}
+Formerly mandated conversions (\link{lvalue-to-rvalue}{conv.lval},
+\link{array-to-pointer}{conv.array}, and \link{function-to-pointer}{conv.func}
 standard conversions), especially the creation of the temporary due to
 lvalue-to-rvalue conversion, were considered gratuitous and surprising.
 \effect
@@ -2676,7 +2676,7 @@ standard library.
 The types \tcode{char16_t} and \tcode{char32_t}
 are distinct types rather than typedefs to existing integral types.
 The tokens \tcode{char16_t} and \tcode{char32_t}
-are keywords in this International Standard\iref{lex.key}.
+are \link{keywords}{lex.key} in this International Standard.
 They do not appear as macro or type names defined in
 \libheaderref{cuchar}.
 
@@ -2686,7 +2686,7 @@ They do not appear as macro or type names defined in
 The type \tcode{wchar_t} is a distinct type rather than a typedef to an
 existing integral type.
 The token \tcode{wchar_t}
-is a keyword in this International Standard\iref{lex.key}.
+is a \link{keyword}{lex.key} in this International Standard.
 It does not appear as a macro or type name defined in any of
 \libheaderref{cstddef},
 \libheaderref{cstdlib},
@@ -2716,8 +2716,8 @@ The tokens
 \tcode{xor},
 and
 \tcode{xor_eq}
-are keywords in this International
-Standard\iref{lex.key},
+are \link{keywords}{lex.key} in this International
+Standard,
 and are not introduced as macros
 by \libdeprheaderref{iso646.h}.
 
@@ -2735,7 +2735,7 @@ by \libdeprheaderref{stdalign.h}.
 
 \pnum
 The tokens \tcode{bool}, \tcode{true}, and \tcode{false}
-are keywords in this International Standard\iref{lex.key},
+are \link{keywords}{lex.key} in this International Standard,
 and are not introduced as macros
 by \libdeprheaderref{stdbool.h}.
 

@@ -67,7 +67,7 @@ Certain function declarations cannot be overloaded:
 \item
 \indextext{return type!overloading and}%
 Function declarations that differ only in the return type,
-the exception specification\iref{except.spec}, or both
+the \link{exception specification}{except.spec}, or both
 cannot be overloaded.
 \item
 \indextext{\idxcode{static}!overloading and}%
@@ -160,8 +160,8 @@ be overloaded:
 Parameter declarations that differ only in the use of equivalent typedef
 ``types'' are equivalent.
 A
-\tcode{typedef}
-is not a separate type, but only a synonym for another type\iref{dcl.typedef}.
+\link{\tcode{typedef}}{dcl.typedef}
+is not a separate type, but only a synonym for another type.
 \begin{example}
 \begin{codeblock}
 typedef int Int;
@@ -445,7 +445,7 @@ Overload resolution selects the function to call in seven distinct
 contexts within the language:
 \begin{itemize}
 \item
-invocation of a function named in the function call syntax\iref{over.call.func};
+invocation of a function named in the \link{function call syntax}{over.call.func};
 \item
 invocation of a function call operator, a pointer-to-function
 conversion function, a reference-to-pointer-to-function conversion
@@ -459,14 +459,14 @@ invocation of a constructor for default- or direct-initialization\iref{dcl.init}
 of a class object\iref{over.match.ctor};
 \item
 invocation of a user-defined conversion for
-copy-initialization\iref{dcl.init} of a class object\iref{over.match.copy};
+\deflink{copy-initialization}{dcl.init} of a class object\iref{over.match.copy};
 \item
 invocation of a conversion function for initialization of an object of a
 non-class type from an expression of class type\iref{over.match.conv}; and
 \item
 invocation of a conversion function for conversion
 in which a reference\iref{dcl.init.ref}
-will be directly bound\iref{over.match.ref}.
+will be \link{directly bound}{over.match.ref}.
 \end{itemize}
 
 Each of these contexts defines the set of candidate functions and
@@ -484,7 +484,7 @@ conditions) is selected to form a set of
 viable functions\iref{over.match.viable}.
 \item
 Then the best viable function is selected based on the
-implicit conversion sequences\iref{over.best.ics} needed to
+\link{implicit conversion sequences}{over.best.ics} needed to
 match each argument to the corresponding parameter of each
 viable function.
 \end{itemize}
@@ -495,7 +495,7 @@ resolution succeeds and produces it as the result.
 Otherwise
 overload resolution fails and the invocation is ill-formed.
 When overload resolution succeeds,
-and the best viable function is not accessible\iref{class.access} in the context
+and the best viable function is not \link{accessible}{class.access} in the context
 in which it is used,
 the program is ill-formed.
 
@@ -605,7 +605,7 @@ as long as in all other respects the argument can be
 converted to the type of the implicit object parameter.
 \begin{note}
 The fact that such an argument is an rvalue does not
-affect the ranking of implicit conversion sequences\iref{over.ics.rank}.
+affect the \link{ranking}{over.ics.rank} of implicit conversion sequences.
 \end{note}
 
 \pnum
@@ -699,7 +699,7 @@ B b3 = C();                             // calls \#4
 \indextext{overloading!resolution!function call syntax|(}
 
 \pnum
-In a function call\iref{expr.call}
+In a \link{function call}{expr.call}
 \begin{ncsimplebnf}
 postfix-expression \terminal{(} \opt{expression-list} \terminal{)}
 \end{ncsimplebnf}
@@ -818,7 +818,7 @@ In case (2), the argument list is the
 in the call augmented by the addition of an implied object
 argument as in a qualified function call.
 If the keyword
-\tcode{this}\iref{class.this} is in scope and refers to
+\link{\tcode{this}}{class.this} is in scope and refers to
 class
 \tcode{T},
 or a derived class of
@@ -1194,7 +1194,7 @@ in each case using the selected rewritten \tcode{\keyword{operator}==} candidate
 If a built-in candidate is selected by overload resolution, the
 operands of class type are converted to the types of the corresponding parameters
 of the selected operation function, except that the second standard conversion
-sequence of a user-defined conversion sequence\iref{over.ics.user} is not applied.
+sequence of a \link{user-defined conversion sequence}{over.ics.user} is not applied.
 Then the operator is treated as the corresponding
 built-in operator and interpreted according to \ref{expr.compound}.
 \begin{example}
@@ -1274,10 +1274,10 @@ void B::f() {
 \indextext{overloading!resolution!initialization}
 
 \pnum
-When objects of class type are direct-initialized\iref{dcl.init},
+When objects of class type are \deflinkx{direct-initialized}{direct-initialization}{dcl.init},
 copy-initialized from an expression of the same or a
 derived class type\iref{dcl.init},
-or default-initialized\iref{dcl.init},
+or \deflinkx{default-initialized}{default-initialization}{dcl.init},
 overload resolution selects the constructor.
 For direct-initialization or default-initialization
 that is not in the context of copy-initialization, the
@@ -1315,7 +1315,7 @@ the candidate functions are selected as follows:
 
 \begin{itemize}
 \item
-The converting constructors\iref{class.conv.ctor} of
+The \deflinkx{converting constructors}{converting constructor}{class.conv.ctor} of
 \tcode{T}
 are candidate functions.
 \item
@@ -1383,11 +1383,11 @@ and yield type
 \tcode{T}
 or a type that can be converted to type
 \tcode{T}
-via a standard conversion sequence\iref{over.ics.scs}
+via a \link{standard conversion sequence}{over.ics.scs}
 are candidate functions.
 For direct-initialization, those explicit conversion functions that are not
 hidden within \tcode{S} and yield type \tcode{T} or a type that can be converted
-to type \tcode{T} with a qualification conversion\iref{conv.qual} are also
+to type \tcode{T} with a \link{qualification conversion}{conv.qual} are also
 candidate functions.
 Conversion functions that return a cv-qualified type
 are considered to yield the cv-unqualified version of that type
@@ -1433,7 +1433,7 @@ and yield type ``lvalue reference to \cvqual{cv2} \tcode{T2}''
 ``\cvqual{cv2} \tcode{T2}''
 or ``rvalue reference to \cvqual{cv2} \tcode{T2}'' (when initializing an
 rvalue reference or an lvalue reference to function),
-where ``\cvqual{cv1} \tcode{T}'' is reference-compatible\iref{dcl.init.ref}
+where ``\cvqual{cv1} \tcode{T}'' is \deflink{reference-compatible}{dcl.init.ref}
 with ``\cvqual{cv2} \tcode{T2}'',
 are candidate functions. For direct-initialization, those explicit
 conversion functions that are not hidden within \tcode{S} and yield
@@ -1442,8 +1442,8 @@ type ``lvalue reference to \cvqual{cv2} \tcode{T2}''
 or ``rvalue reference to \cvqual{cv2} \tcode{T2}''
 (when initializing an rvalue reference or an lvalue reference to function),
 where \tcode{T2} is the same type as \tcode{T} or can be
-converted to type \tcode{T} with a qualification
-conversion\iref{conv.qual}, are also candidate functions.
+converted to type \tcode{T} with a \link{qualification
+conversion}{conv.qual}, are also candidate functions.
 
 \end{itemize}
 
@@ -1908,7 +1908,7 @@ Third, for
 \tcode{F}
 to be a viable function, there shall exist for each
 argument an
-implicit conversion sequence\iref{over.best.ics} that
+\deflinkx{implicit conversion sequence}{conversion sequence!implicit}{over.best.ics} that
 converts that argument to the corresponding parameter of
 \tcode{F}.
 If the parameter has reference type, the implicit conversion sequence
@@ -1997,8 +1997,8 @@ float x = a;        // ambiguous: both possibilities require conversions,
 \end{example}
 or, if not that,
 
-\item the context is an initialization by conversion function for direct
-reference binding\iref{over.match.ref} of a reference to function type, the
+\item the context is an initialization by conversion function for \link{direct
+reference binding}{over.match.ref} of a reference to function type, the
 return type of \tcode{F1} is the same kind of reference (lvalue or rvalue)
 as the reference being initialized, and the return type of \tcode{F2} is not
 \begin{example}
@@ -2102,7 +2102,7 @@ or, if not that
 and \tcode{F2} is not, or, if not that,
 
 \item
-\tcode{F1} is the copy deduction candidate\iref{over.match.class.deduct}
+\tcode{F1} is the \deflink{copy deduction candidate}{over.match.class.deduct}
 and \tcode{F2} is not, or, if not that,
 
 \item
@@ -2244,7 +2244,7 @@ parameter.
 \begin{note}
 Other properties, such as the lifetime, storage class,
 alignment, accessibility of the argument, whether the argument is a bit-field,
-and whether a function is deleted\iref{dcl.fct.def.delete}, are ignored.
+and whether a function is \link{deleted}{dcl.fct.def.delete}, are ignored.
 So, although an implicit
 conversion sequence can be defined for a given argument-parameter
 pair, the conversion from the argument to the parameter might still
@@ -2257,11 +2257,11 @@ well-formed implicit conversion
 sequence is one of the following forms:
 \begin{itemize}
 \item
-a standard conversion sequence\iref{over.ics.scs},
+a \link{standard conversion sequence}{over.ics.scs},
 \item
-a user-defined conversion sequence\iref{over.ics.user}, or
+a \link{user-defined conversion sequence}{over.ics.user}, or
 \item
-an ellipsis conversion sequence\iref{over.ics.ellipsis}.
+an \link{ellipsis conversion sequence}{over.ics.ellipsis}.
 \end{itemize}
 
 \pnum
@@ -2431,10 +2431,10 @@ Each conversion in \tref{over.ics.scs}
 also has an associated rank (Exact
 Match, Promotion, or Conversion).
 These are used
-to rank standard conversion sequences\iref{over.ics.rank}.
+to \link{rank standard conversion sequences}{over.ics.rank}.
 The rank of a conversion sequence is determined by considering the
-rank of each conversion in the sequence and the rank of any reference
-binding\iref{over.ics.ref}.
+rank of each conversion in the sequence and the rank of any \link{reference
+binding}{over.ics.ref}.
 If any of those has Conversion rank, the
 sequence has Conversion rank; otherwise, if any of those has Promotion rank,
 the sequence has Promotion rank; otherwise, the sequence has Exact
@@ -2466,12 +2466,12 @@ A \defnadj{user-defined}{conversion sequence} consists of an initial
 standard conversion sequence followed by a user-defined
 conversion\iref{class.conv} followed by a second standard
 conversion sequence.
-If the user-defined conversion is specified
-by a constructor\iref{class.conv.ctor}, the initial standard
+If the user-defined conversion is \link{specified
+by a constructor}{class.conv.ctor}, the initial standard
 conversion sequence converts the source type to the type required
 by the argument of the constructor.
 If the user-defined
-conversion is specified by a conversion function\iref{class.conv.fct}, the
+conversion is specified by a \link{conversion function}{class.conv.fct}, the
 initial standard conversion sequence
 converts the source type to the implicit object parameter of the
 conversion function.
@@ -2511,7 +2511,7 @@ specification of the function called (see~\ref{expr.call}).
 \rSec4[over.ics.ref]{Reference binding}
 
 \pnum
-When a parameter of reference type binds directly\iref{dcl.init.ref} to an
+When a parameter of reference type \link{binds directly}{dcl.init.ref} to an
 argument expression, the implicit conversion sequence is the identity conversion,
 unless the argument expression has a type that is a derived class of the parameter
 type, in which case the implicit conversion sequence is a derived-to-base
@@ -2527,7 +2527,7 @@ int i = f(b);       // calls \tcode{f(B\&)}, an exact match, rather than \tcode{
 \end{example}
 If the parameter binds directly to the result of
 applying a conversion function to the argument expression, the implicit
-conversion sequence is a user-defined conversion sequence\iref{over.ics.user},
+conversion sequence is a \link{user-defined conversion sequence}{over.ics.user},
 with the second standard conversion sequence either an identity conversion or,
 if the conversion function returns an entity of a type that is a derived class
 of the parameter type, a derived-to-base conversion.
@@ -2582,7 +2582,7 @@ the prohibition on binding a non-\tcode{const} lvalue reference to a bit-field\i
 \rSec4[over.ics.list]{List-initialization sequence}
 
 \pnum
-When an argument is an initializer list\iref{dcl.init.list}, it is not an
+When an argument is an initializer list\iref{dcl.init.list}, it is not an % todo
 expression and special rules apply for converting it to a parameter type.
 
 \pnum
@@ -2732,8 +2732,8 @@ i({ {1,2}, {"bar"} });  // OK: \tcode{i(D(A(std::initializer_list<int>\{1,2\}), 
 
 \pnum
 Otherwise, if the parameter has an aggregate type which can be initialized from
-the initializer list according to the rules for aggregate
-initialization\iref{dcl.init.aggr}, the implicit conversion sequence is a
+the initializer list according to the rules for \link{aggregate
+initialization}{dcl.init.aggr}, the implicit conversion sequence is a
 user-defined conversion sequence with the second standard conversion
 sequence an identity conversion.
 \begin{example}
@@ -2821,13 +2821,13 @@ When comparing the basic forms of implicit conversion sequences
 (as defined in~\ref{over.best.ics})
 \begin{itemize}
 \item
-a standard conversion sequence\iref{over.ics.scs} is a better
+a \link{standard conversion sequence}{over.ics.scs} is a better
 conversion sequence than a user-defined conversion sequence
 or an ellipsis conversion sequence, and
 \item
-a user-defined conversion sequence\iref{over.ics.user} is a
-better conversion sequence than an ellipsis conversion
-sequence\iref{over.ics.ellipsis}.
+a \link{user-defined conversion sequence}{over.ics.user} is a
+better conversion sequence than an \link{ellipsis conversion
+sequence}{over.ics.ellipsis}.
 \end{itemize}
 
 \pnum
@@ -3199,11 +3199,11 @@ The target can be
 an object or reference being initialized~(\ref{dcl.init}, \ref{dcl.init.ref},
 \ref{dcl.init.list}),
 \item
-the left side of an assignment\iref{expr.ass},
+the left side of an \link{assignment}{expr.ass},
 \item
 a parameter of a function\iref{expr.call},
 \item
-a parameter of a user-defined operator\iref{over.oper},
+a parameter of a \link{user-defined operator}{over.oper},
 \item
 the return value of a function, operator function, or conversion\iref{stmt.return},
 \item
@@ -3406,8 +3406,8 @@ The operators
 and
 \tcode{[]}
 are formed from more than one token.
-The latter two operators are function call\iref{expr.call}
-and subscripting\iref{expr.sub}.
+The latter two operators are \link{function call}{expr.call}
+and \link{subscripting}{expr.sub}.
 \end{note}
 \indextext{operator!subscripting}%
 \indextext{operator!function call}%
@@ -3502,7 +3502,7 @@ this is not required by operator functions.
 
 \pnum
 \indextext{argument!overloaded operator and default}%
-An operator function cannot have default arguments\iref{dcl.fct.default},
+An operator function cannot have \link{default arguments}{dcl.fct.default},
 except where explicitly stated below.
 Operator
 functions cannot have more or fewer parameters than the
@@ -3827,7 +3827,7 @@ is hidden and is not included in the set of candidate functions.
 In this subclause, the term
 \defn{promoted integral type}
 is used to refer to those integral types which are preserved by
-integral promotion\iref{conv.prom} (including e.g.
+\link{integral promotion}{conv.prom} (including e.g.
 \tcode{int}
 and
 \tcode{long}

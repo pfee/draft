@@ -160,8 +160,8 @@ floating-point evaluation in constant expressions.
 \end{note}
 
 \pnum
-The floating-point environment has thread storage
-duration\iref{basic.stc.thread}. The initial state for a thread's floating-point
+The floating-point environment has \deflink{thread storage duration}{basic.stc.thread}.
+The initial state for a thread's floating-point
 environment is the state of the floating-point environment of the thread that constructs
 the corresponding \tcode{thread} object\iref{thread.thread.class}
 or \tcode{jthread} object\iref{thread.jthread.class}
@@ -191,7 +191,7 @@ for any type other than \tcode{float}, \tcode{double}, or \tcode{long double} is
 The specializations
 \tcode{complex<float>},
 \tcode{complex<double>}, and
-\tcode{complex<long double>} are literal types\iref{basic.types}.
+\tcode{complex<long double>} are \deflinkx{literal types}{literal type}{basic.types}.
 
 \pnum
 If the result of a function is not mathematically defined or not in
@@ -1690,7 +1690,7 @@ and to templates producing such types when instantiated.
 \pnum
 \indextext{\idxcode{result_type}!entity characterization based on}%
 Each of the entities specified via this subclause
-has an associated arithmetic type\iref{basic.fundamental}
+has an associated \deflinkx{arithmetic type}{type!arithmetic}{basic.fundamental}
 identified as \tcode{result_type}.
 With \tcode{T} as the \tcode{result_type}
 thus associated with such an entity,
@@ -1920,21 +1920,21 @@ the effect of instantiating a template:
     is undefined unless the corresponding template argument
     is cv-unqualified and
     meets the requirements
-    of seed sequence\iref{rand.req.seedseq}.
+    of \link{seed sequence}{rand.req.seedseq}.
   \item
     that has a template type parameter
     named \tcode{URBG}
     is undefined unless the corresponding template argument
     is cv-unqualified and
     meets the requirements
-    of uniform random bit generator\iref{rand.req.urng}.
+    of \link{uniform random bit generator}{rand.req.urng}.
   \item
     that has a template type parameter
     named \tcode{Engine}
     is undefined unless the corresponding template argument
     is cv-unqualified and
     meets the requirements
-    of random number engine\iref{rand.req.eng}.
+    of \link{random number engine}{rand.req.eng}.
   \item
     that has a template type parameter
     named \tcode{RealType}
@@ -2059,7 +2059,7 @@ In that Table and throughout this subclause:
 \indextext{\idxcode{result_type}!seed sequence requirement}%
 \tcode{S::result_type}
   & \tcode{T}
-  & \tcode{T} is an unsigned integer type\iref{basic.fundamental}
+  & \tcode{T} is an \deflink{unsigned integer type}{basic.fundamental}
     of at least 32 bits.
   & compile-time
   \\ \rowsep
@@ -2230,7 +2230,7 @@ An engine's state may be established via
 \pnum
 A class \tcode{E}
 that meets the requirements
-of a uniform random bit generator\iref{rand.req.urng}
+of a \link{uniform random bit generator}{rand.req.urng}
 also meets the requirements
 of a \term{random number engine}
 if the expressions shown
@@ -2251,7 +2251,7 @@ In that Table and throughout this subclause:
     \tcode{s} is a value of \tcode{T};
   \item
     \tcode{q} is an lvalue
-    meeting the requirements of a seed sequence\iref{rand.req.seedseq};
+    meeting the requirements of a \link{seed sequence}{rand.req.seedseq};
   \item
     \tcode{z} is a value
     of type \tcode{unsigned long long};
@@ -2652,7 +2652,7 @@ In that Table and throughout this subclause,
   \item
     \tcode{g}, \tcode{g1}, and \tcode{g2} are lvalues of a type
     meeting the requirements
-    of a uniform random bit generator\iref{rand.req.urng};
+    of a \link{uniform random bit generator}{rand.req.urng};
   \item
     \tcode{os} is an lvalue of the type of some class template specialization
     \tcode{basic_ostream<charT,} \tcode{traits>};
@@ -2684,7 +2684,7 @@ according to \ref{strings} and \ref{input.output}.
 \indextext{\idxcode{result_type}!random number distribution requirement}%
 \tcode{D::result_type}
   & \tcode{T}
-  & \tcode{T} is an arithmetic type\iref{basic.fundamental}.
+  & \tcode{T} is an \deflinkx{arithmetic type}{type!arithmetic}{basic.fundamental}.
   & compile-time
   \\ \rowsep
 \tcode{D::param_type}
@@ -2903,7 +2903,7 @@ using distribution_type =  D;
 Each type instantiated
 from a class template specified in this subclause~\ref{rand.eng}
 meets the requirements
-of a random number engine\iref{rand.req.eng} type.
+of a \link{random number engine}{rand.req.eng} type.
 
 \pnum
 Except where specified otherwise,
@@ -3064,10 +3064,11 @@ explicit linear_congruential_engine(result_type s);
  otherwise sets the engine's state to $\tcode{s} \bmod m$.
 \end{itemdescr}
 
-\indexlibraryctor{linear_congruential_engine}%
+\begin{indexed}{\indexlibraryctor{linear_congruential_engine}}
 \begin{itemdecl}
 template<class Sseq> explicit linear_congruential_engine(Sseq& q);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3223,10 +3224,11 @@ of \state{x}{i}
 consists of the values of $X_{i - n}, \dotsc, X_{i - 1}$,
 in that order.
 
-\indexlibraryctor{mersenne_twister_engine}%
+\begin{indexed}{\indexlibraryctor{mersenne_twister_engine}}
 \begin{itemdecl}
 explicit mersenne_twister_engine(result_type value);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3247,10 +3249,11 @@ Then, iteratively for $i = 1 - n, \dotsc, -1$, sets $X_i$ to
 \bigoh{n}.
 \end{itemdescr}
 
-\indexlibraryctor{mersenne_twister_engine}%
+\begin{indexed}{\indexlibraryctor{mersenne_twister_engine}}
 \begin{itemdecl}
 template<class Sseq> explicit mersenne_twister_engine(Sseq& q);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3377,10 +3380,11 @@ consists of the values of
  $X_{i-r}, \dotsc, X_{i-1}$,
 in that order, followed by $c$.
 
-\indexlibraryctor{subtract_with_carry_engine}%
+\begin{indexed}{\indexlibraryctor{subtract_with_carry_engine}}
 \begin{itemdecl}
 explicit subtract_with_carry_engine(result_type value);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3411,10 +3415,11 @@ Exactly $n \cdot \tcode{r}$ invocations
  of \tcode{e}.
 \end{itemdescr}
 
-\indexlibraryctor{subtract_with_carry_engine}%
+\begin{indexed}{\indexlibraryctor{subtract_with_carry_engine}}
 \begin{itemdecl}
 template<class Sseq> explicit subtract_with_carry_engine(Sseq& q);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -3450,7 +3455,7 @@ template<class Sseq> explicit subtract_with_carry_engine(Sseq& q);
 Each type instantiated
 from a class template specified in this subclause~\ref{rand.adapt}
 meets the requirements
-of a random number engine adaptor\iref{rand.req.adapt} type.
+of a \link{random number engine adaptor}{rand.req.adapt} type.
 
 \pnum
 Except where specified otherwise,
@@ -4497,7 +4502,7 @@ that can be delivered by a random number distribution.
 Each type instantiated
 from a class template specified in this subclause~\ref{rand.dist}
 meets the requirements
-of a random number distribution\iref{rand.req.dist} type.
+of a \link{random number distribution}{rand.req.dist} type.
 
 \pnum
 Descriptions are provided in this subclause~\ref{rand.dist}
@@ -5027,10 +5032,11 @@ template<class IntType = int>
 \end{codeblock}
 
 
-\indexlibraryctor{negative_binomial_distribution}%
+\begin{indexed}{\indexlibraryctor{negative_binomial_distribution}}
 \begin{itemdecl}
 explicit negative_binomial_distribution(IntType k, double p = 0.5);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5056,10 +5062,11 @@ The value of the \tcode{k} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{p}{negative_binomial_distribution}%
+\begin{indexed}{\indexlibrarymember{p}{negative_binomial_distribution}}
 \begin{itemdecl}
 double p() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5149,10 +5156,11 @@ $0 < \tcode{mean}$.
 \tcode{mean} corresponds to the parameter of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{mean}{poisson_distribution}%
+\begin{indexed}{\indexlibrarymember{mean}{poisson_distribution}}
 \begin{itemdecl}
 double mean() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5209,10 +5217,11 @@ template<class RealType = double>
 \end{codeblock}
 
 
-\indexlibraryctor{exponential_distribution}%
+\begin{indexed}{\indexlibraryctor{exponential_distribution}}
 \begin{itemdecl}
 explicit exponential_distribution(RealType lambda);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5224,10 +5233,11 @@ $0 < \tcode{lambda}$.
 \tcode{lambda} corresponds to the parameter of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{lambda}{exponential_distribution}%
+\begin{indexed}{\indexlibrarymember{lambda}{exponential_distribution}}
 \begin{itemdecl}
 RealType lambda() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5256,6 +5266,7 @@ the probability density function%
 
 \indexlibraryglobal{gamma_distribution}%
 \indexlibrarymember{result_type}{gamma_distribution}%
+\begin{indexed}{\indexlibrary{\idxcode{gamma_distribution}}}
 \begin{codeblock}
 template<class RealType = double>
   class gamma_distribution {
@@ -5285,12 +5296,13 @@ template<class RealType = double>
     result_type max() const;
   };
 \end{codeblock}
+\end{indexed}
 
-
-\indexlibraryctor{gamma_distribution}%
+\begin{indexed}{\indexlibraryctor{gamma_distribution}}
 \begin{itemdecl}
 explicit gamma_distribution(RealType alpha, RealType beta = 1.0);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5303,10 +5315,11 @@ $0 < \tcode{alpha}$ and $0 < \tcode{beta}$.
 correspond to the parameters of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{alpha}{gamma_distribution}%
+\begin{indexed}{\indexlibrarymember{alpha}{gamma_distribution}}
 \begin{itemdecl}
 RealType alpha() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5315,10 +5328,11 @@ The value of the \tcode{alpha} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{beta}{gamma_distribution}%
+\begin{indexed}{\indexlibrarymember{beta}{gamma_distribution}}
 \begin{itemdecl}
 RealType beta() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5379,10 +5393,11 @@ template<class RealType = double>
   };
 \end{codeblock}
 
-\indexlibraryctor{weibull_distribution}%
+\begin{indexed}{\indexlibraryctor{weibull_distribution}}
 \begin{itemdecl}
 explicit weibull_distribution(RealType a, RealType b = 1.0);
 \end{itemdecl}%
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5395,10 +5410,11 @@ $0 < \tcode{a}$ and $0 < \tcode{b}$.
 correspond to the respective parameters of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{a}{weibull_distribution}%
+\begin{indexed}{\indexlibrarymember{a}{weibull_distribution}}
 \begin{itemdecl}
 RealType a() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5407,10 +5423,11 @@ The value of the \tcode{a} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{b}{weibull_distribution}%
+\begin{indexed}{\indexlibrarymember{b}{weibull_distribution}}
 \begin{itemdecl}
 RealType b() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5477,11 +5494,11 @@ template<class RealType = double>
   };
 \end{codeblock}
 
-
-\indexlibraryctor{extreme_value_distribution}%
+\begin{indexed}{\indexlibraryctor{extreme_value_distribution}}
 \begin{itemdecl}
 explicit extreme_value_distribution(RealType a, RealType b = 1.0);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5494,10 +5511,11 @@ $0 < \tcode{b}$.
 correspond to the respective parameters of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{a}{extreme_value_distribution}%
+\begin{indexed}{\indexlibrarymember{a}{extreme_value_distribution}}
 \begin{itemdecl}
 RealType a() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5506,10 +5524,11 @@ The value of the \tcode{a} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{b}{extreme_value_distribution}%
+\begin{indexed}{\indexlibrarymember{b}{extreme_value_distribution}}
 \begin{itemdecl}
 RealType b() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5597,11 +5616,11 @@ template<class RealType = double>
   };
 \end{codeblock}
 
-
-\indexlibraryctor{normal_distribution}%
+\begin{indexed}{\indexlibraryctor{normal_distribution}}
 \begin{itemdecl}
 explicit normal_distribution(RealType mean, RealType stddev = 1.0);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5614,10 +5633,11 @@ $0 < \tcode{stddev}$.
 correspond to the respective parameters of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{mean}{normal_distribution}%
+\begin{indexed}{\indexlibrarymember{mean}{normal_distribution}}
 \begin{itemdecl}
 RealType mean() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5626,10 +5646,11 @@ The value of the \tcode{mean} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{stddev}{normal_distribution}%
+\begin{indexed}{\indexlibrarymember{stddev}{normal_distribution}}
 \begin{itemdecl}
 RealType stddev() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5706,10 +5727,11 @@ $0 < \tcode{s}$.
 correspond to the respective parameters of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{m}{lognormal_distribution}%
+\begin{indexed}{\indexlibrarymember{m}{lognormal_distribution}}
 \begin{itemdecl}
 RealType m() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5718,10 +5740,11 @@ The value of the \tcode{m} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{s}{lognormal_distribution}%
+\begin{indexed}{\indexlibrarymember{s}{lognormal_distribution}}
 \begin{itemdecl}
 RealType s() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5778,11 +5801,11 @@ template<class RealType = double>
   };
 \end{codeblock}
 
-
-\indexlibraryctor{chi_squared_distribution}%
+\begin{indexed}{\indexlibraryctor{chi_squared_distribution}}
 \begin{itemdecl}
 explicit chi_squared_distribution(RealType n);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5794,10 +5817,11 @@ $0 < \tcode{n}$.
 \tcode{n} corresponds to the parameter of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{n}{chi_squared_distribution}%
+\begin{indexed}{\indexlibrarymember{n}{chi_squared_distribution}}
 \begin{itemdecl}
 RealType n() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5872,10 +5896,11 @@ $0 < \tcode{b}$.
 correspond to the respective parameters of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{a}{cauchy_distribution}%
+\begin{indexed}{\indexlibrarymember{a}{cauchy_distribution}}
 \begin{itemdecl}
 RealType a() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5884,10 +5909,11 @@ The value of the \tcode{a} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{b}{cauchy_distribution}%
+\begin{indexed}{\indexlibrarymember{b}{cauchy_distribution}}
 \begin{itemdecl}
 RealType b() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5949,11 +5975,11 @@ template<class RealType = double>
   };
 \end{codeblock}
 
-
-\indexlibraryctor{fisher_f_distribution}%
+\begin{indexed}{\indexlibraryctor{fisher_f_distribution}}
 \begin{itemdecl}
 explicit fisher_f_distribution(RealType m, RealType n = 1);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5966,10 +5992,11 @@ $0 < \tcode{m}$ and $0 < \tcode{n}$.
 correspond to the respective parameters of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{m}{fisher_f_distribution}%
+\begin{indexed}{\indexlibrarymember{m}{fisher_f_distribution}}
 \begin{itemdecl}
 RealType m() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -5978,10 +6005,11 @@ The value of the \tcode{m} parameter
  with which the object was constructed.
 \end{itemdescr}
 
-\indexlibrarymember{n}{fisher_f_distribution}%
+\begin{indexed}{\indexlibrarymember{n}{fisher_f_distribution}}
 \begin{itemdecl}
 RealType n() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -6041,11 +6069,11 @@ template<class RealType = double>
   };
 \end{codeblock}
 
-
-\indexlibraryctor{student_t_distribution}%
+\begin{indexed}{\indexlibraryctor{student_t_distribution}}
 \begin{itemdecl}
 explicit student_t_distribution(RealType n);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -6057,10 +6085,11 @@ $0 < \tcode{n}$.
 \tcode{n} corresponds to the parameter of the distribution.
 \end{itemdescr}
 
-\indexlibrarymember{mean}{student_t_distribution}%
+\begin{indexed}{\indexlibrarymember{mean}{student_t_distribution}}
 \begin{itemdecl}
 RealType n() const;
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -6147,10 +6176,11 @@ template<class IntType = int>
   };
 \end{codeblock}
 
-\indexlibraryctor{discrete_distribution}
+\begin{indexed}{\indexlibraryctor{discrete_distribution}}
 \begin{itemdecl}
 discrete_distribution();
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -6951,8 +6981,9 @@ additional functions and operators as follows:
 \begin{itemize}
 \item
 for every function taking a
-\tcode{const valarray<T>\&} other than \tcode{begin} and
-\tcode{end}\iref{valarray.range},
+\tcode{const valarray<T>\&} other than
+\liblinkx{\tcode{begin}}{begin!valarray}{valarray.range} and
+\liblinkx{\tcode{end}}{end!valarray}{valarray.range},
 identical functions taking the replacement types shall be added;
 \item
 for every function taking two
@@ -6977,7 +7008,7 @@ objects.
 
 \pnum
 These library functions are permitted to throw a
-\tcode{bad_alloc}\iref{bad.alloc} exception if there are not sufficient resources available
+\link{\tcode{bad_alloc}}{bad.alloc} exception if there are not sufficient resources available
 to carry out the operation.
 Note that the exception is not mandated.
 
@@ -7131,7 +7162,7 @@ explicit valarray(size_t n);
 \pnum
 \effects
 Constructs a \tcode{valarray} that has length \tcode{n}.
-Each element of the array is value-initialized\iref{dcl.init}.
+Each element of the array is \deflinkx{value-initialized}{value-initialize}{dcl.init}.
 \end{itemdescr}
 
 \indexlibraryctor{valarray}%
@@ -7384,7 +7415,7 @@ and other techniques to generate efficient
 \pnum
 The reference returned by the subscript operator for an array shall
 be valid until the member function
-\tcode{resize(size_t, T)}\iref{valarray.members} is called for that array or until the lifetime of
+\liblinkx{\tcode{resize(size_t, T)}}{valarray!resize}{valarray.members} is called for that array or until the lifetime of
 that array ends, whichever happens first.
 \end{itemdescr}
 
@@ -7810,7 +7841,8 @@ places, with zero fill.
 \pnum
 \begin{example}
 If the argument has the value -2,
-the first two elements of the result will be value-initialized\iref{dcl.init}; the third element of the result will be assigned the value
+the first two elements of the result will be
+\deflinkx{value-initialized}{value-initialize}{dcl.init}; the third element of the result will be assigned the value
 of the first element of the argument; etc.
 \end{example}
 \end{itemdescr}
@@ -7845,10 +7877,11 @@ the value returned by applying the argument function to the
 corresponding element of \tcode{*this}.
 \end{itemdescr}
 
-\indexlibrarymember{resize}{valarray}%
+\begin{indexed}{\indexlibrarymember{resize}{valarray}}
 \begin{itemdecl}
 void resize(size_t sz, T c = T());
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -8933,15 +8966,16 @@ parameter \tcode{T} and whose \tcode{reference} type is \tcode{const T\&}.
 \pnum
 The iterators returned by \tcode{begin} and \tcode{end} for an array
 are guaranteed to be valid until the member function
-\tcode{resize(size_t, T)}\iref{valarray.members} is called for that
+\liblinkx{\tcode{resize(size_t, T)}}{valarray!resize}{valarray.members} is called for that
 array or until the lifetime of that array ends, whichever happens
 first.
 
-\indexlibrarymember{begin}{valarray}%
+\begin{indexed}{\indexlibrarymember{begin}{valarray}}
 \begin{itemdecl}
 template<class T> @\unspec{1}@ begin(valarray<T>& v);
 template<class T> @\unspec{2}@ begin(const valarray<T>& v);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -8949,11 +8983,12 @@ template<class T> @\unspec{2}@ begin(const valarray<T>& v);
 An iterator referencing the first value in the array.
 \end{itemdescr}
 
-\indexlibrarymember{end}{valarray}%
+\begin{indexed}{\indexlibrarymember{end}{valarray}}
 \begin{itemdecl}
 template<class T> @\unspec{1}@ end(valarray<T>& v);
 template<class T> @\unspec{2}@ end(const valarray<T>& v);
 \end{itemdecl}
+\end{indexed}
 
 \begin{itemdescr}
 \pnum
@@ -9719,11 +9754,11 @@ namespace std {
 The contents and meaning of the header \libheader{cmath}
 are the same as the C standard library header \libheader{math.h},
 with the addition of
-a three-dimensional hypotenuse function~(\ref{c.math.hypot3}) and
+a \link{three-dimensional hypotenuse}{c.math.hypot3} function and
 the mathematical special functions described in \ref{sf.cmath}.
 \begin{note}
 Several functions have additional overloads in this document,
-but they have the same behavior as in the C standard library\iref{library.c}.
+but they have the same behavior as in the \link{C standard library}{library.c}.
 \end{note}
 
 \pnum
@@ -9734,7 +9769,7 @@ there shall be additional overloads sufficient to ensure:
   \item If any argument of arithmetic type
     corresponding to a \tcode{double} parameter
     has type \tcode{long double},
-    then all arguments of arithmetic type\iref{basic.fundamental}
+    then all arguments of \deflinkx{arithmetic type}{type!arithmetic}{basic.fundamental}
     corresponding to \tcode{double} parameters
     are effectively cast to \tcode{long double}.
   \item Otherwise, if any argument of arithmetic type
@@ -9790,7 +9825,7 @@ for the functions \tcode{abs}, \tcode{labs}, \tcode{llabs},
 If \tcode{abs()} is called with an argument of type \tcode{X}
 for which \tcode{is_unsigned_v<X>} is \tcode{true} and
 if \tcode{X} cannot be converted to \tcode{int}
-by integral promotion\iref{conv.prom}, the program is ill-formed.
+by \link{integral promotion}{conv.prom}, the program is ill-formed.
 \begin{note}
 Arguments that can be promoted to \tcode{int} are permitted for compatibility with C.
 \end{note}

@@ -123,7 +123,7 @@ a class template declaration, if the
 class name
 is a
 \grammarterm{simple-template-id},
-the declaration declares a class template partial specialization\iref{temp.class.spec}.
+the declaration declares a \link{class template partial specialization}{temp.class.spec}.
 \end{note}
 
 \pnum
@@ -137,17 +137,17 @@ no declarator is permitted.
 
 \pnum
 \indextext{template name!linkage of}%
-A template name has linkage\iref{basic.link}.
+A template name has \link{linkage}{basic.link}.
 Specializations (explicit or implicit) of
 a template that has internal linkage are
 distinct from all specializations in other translation
 units.
-A template, a template explicit specialization\iref{temp.expl.spec}, and a class
+A template, a template \link{explicit specialization}{temp.expl.spec}, and a class
 template partial specialization shall not have C linkage. Use of a linkage specification
 other than \tcode{"C"} or \tcode{"C++"} with any of these constructs is
 conditionally-supported, with
 \impldef{semantics of linkage specification on templates} semantics.
-Template definitions shall obey the one-definition rule\iref{basic.def.odr}.
+Template definitions shall obey the \link{one-definition rule}{basic.def.odr}.
 \begin{note}
 Default arguments for function templates and for member functions of
 class templates are considered definitions for the purpose of template
@@ -493,7 +493,7 @@ A default
 may be specified for any kind of
 \grammarterm{template-parameter}
 (type, non-type, template)
-that is not a template parameter pack\iref{temp.variadic}.
+that is not a \deflink{template parameter pack}{temp.variadic}.
 A default
 \grammarterm{template-argument}
 may be specified in a template declaration.
@@ -629,7 +629,7 @@ If a \grammarterm{template-parameter} is a
 optional \grammarterm{identifier} or is a
 \grammarterm{parameter-declaration} that declares a
 pack\iref{dcl.fct}, then the \grammarterm{template-parameter}
-is a template parameter pack\iref{temp.variadic}.
+is a \deflink{template parameter pack}{temp.variadic}.
 A template parameter pack that is a \grammarterm{parameter-declaration} whose type
 contains one or more unexpanded packs is a pack expansion. Similarly,
 a template parameter pack that is a \grammarterm{type-parameter} with a
@@ -661,7 +661,7 @@ template <class... T, T... Values>              // error: \tcode{Values} expands
 \rSec1[temp.names]{Names of template specializations}
 
 \pnum
-A template specialization\iref{temp.spec} can be referred to by a
+A \link{template specialization}{temp.spec} can be referred to by a
 \grammarterm{template-id}:
 
 \begin{bnf}
@@ -695,7 +695,7 @@ A template specialization\iref{temp.spec} can be referred to by a
 \end{bnf}
 
 \begin{note}
-The name lookup rules\iref{basic.lookup} are used to associate the use of
+The \link{name lookup}{basic.lookup} rules are used to associate the use of
 a name with a template declaration;
 that is, to identify a name as a
 \grammarterm{template-name}.
@@ -973,8 +973,8 @@ specified in a
 shall match the type and form specified for the corresponding
 parameter declared by the template in its
 \grammarterm{template-parameter-list}.
-When the parameter declared by the template is a template
-parameter pack\iref{temp.variadic}, it will correspond to zero or more
+When the parameter declared by the template is a
+\deflink{template parameter pack}{temp.variadic}, it will correspond to zero or more
 \grammarterm{template-argument}{s}.
 \begin{example}
 \begin{codeblock}
@@ -1136,7 +1136,7 @@ the program is ill-formed.
 \pnum
 When a \grammarterm{simple-template-id} does not name a function,
 a default \grammarterm{template-argument} is
-implicitly instantiated\iref{temp.inst}
+\link{implicitly instantiated}{temp.inst}
 when the value of that default argument is needed.
 \begin{example}
 \begin{codeblock}
@@ -1148,7 +1148,7 @@ The default argument for \tcode{U} is instantiated to form the type \tcode{S<boo
 
 \pnum
 A \grammarterm{template-argument} followed by an ellipsis is
-a pack expansion\iref{temp.variadic}.
+a \deflink{pack expansion}{temp.variadic}.
 
 \rSec2[temp.arg.type]{Template type arguments}
 
@@ -1183,7 +1183,7 @@ void f() {
 \end{codeblock}
 \end{example}
 \begin{note}
-A template type argument may be an incomplete type\iref{basic.types}.
+A template type argument may be an \deflinkx{incomplete type}{type!incomplete}{basic.types}.
 \end{note}
 
 \rSec2[temp.arg.nontype]{Template non-type arguments}
@@ -1326,7 +1326,7 @@ considered even if their parameter lists match that of the template template
 parameter.
 
 \pnum
-Any partial specializations\iref{temp.class.spec} associated with the
+Any \link{partial specializations}{temp.class.spec} associated with the
 primary class template or primary variable template are considered when a
 specialization based on the template
 \grammarterm{template-parameter}
@@ -1434,8 +1434,8 @@ if, given the following rewrite to two function templates,
 the function template corresponding to \tcode{P}
 is at least as specialized as
 the function template corresponding to \tcode{A}
-according to the partial ordering rules
-for function templates\iref{temp.func.order}.
+according to the \link{partial ordering rules
+for function templates}{temp.func.order}.
 Given an invented class template \tcode{X}
 with the \grammarterm{template-head} of \tcode{A} (including default arguments
 and \grammarterm{requires-clause}, if any):
@@ -1481,14 +1481,14 @@ operands that specifies requirements on template arguments.
 The operands of a logical operation are constraints.
 There are three different kinds of constraints:
 \begin{itemize}
-\item conjunctions\iref{temp.constr.op},
-\item disjunctions\iref{temp.constr.op}, and
-\item atomic constraints\iref{temp.constr.atomic}.
+\item \deflinkx{conjunctions}{conjunction}{temp.constr.op},
+\item \deflinkx{disjunctions}{disjunction}{temp.constr.op}, and
+\item \deflinkx{atomic constraints}{atomic constraint}{temp.constr.atomic}.
 \end{itemize}
 
 \pnum
 In order for a constrained template to be instantiated\iref{temp.spec},
-its associated constraints\iref{temp.constr.decl}
+its \deflink{associated constraints}{temp.constr.decl}
 shall be satisfied as described in the following subclauses.
 \begin{note}
 Forming the name of a specialization of
@@ -1496,7 +1496,7 @@ a class template,
 a variable template, or
 an alias template\iref{temp.names}
 requires the satisfaction of its constraints.
-Overload resolution\iref{over.match.viable}
+\link{Overload resolution}{over.match.viable}
 requires the satisfaction of constraints
 on functions and function templates.
 \end{note}
@@ -1553,7 +1553,7 @@ void f(int);
 
 f('a'); // OK: calls \tcode{f(int)}
 \end{codeblock}
-In the satisfaction of the associated constraints\iref{temp.constr.decl}
+In the satisfaction of the \deflink{associated constraints}{temp.constr.decl}
 of \tcode{f}, the constraint \tcode{sizeof(char) > 1} is not satisfied;
 the second operand is not checked for satisfaction.
 \end{example}
@@ -1611,9 +1611,9 @@ in the declaration of a constrained entity (and, therefore, can involve the
 unsubstituted template parameters of the constrained entity),
 called the \defn{parameter mapping}\iref{temp.constr.decl}.
 \begin{note}
-Atomic constraints are formed by constraint normalization\iref{temp.constr.normal}.
-\tcode{E} is never a logical \logop{AND} expression\iref{expr.log.and}
-nor a logical \logop{OR} expression\iref{expr.log.or}.
+Atomic constraints are formed by \deflinkx{constraint normalization}{constraint!normalization}{temp.constr.normal}.
+\tcode{E} is never a \link{logical \logop{AND} expression}{expr.log.and}
+nor a \link{logical \logop{OR} expression}{expr.log.or}.
 \end{note}
 
 \pnum
@@ -1687,7 +1687,7 @@ the parameter mapping and template arguments are
 first substituted into its expression.
 If substitution results in an invalid type or expression,
 the constraint is not satisfied.
-Otherwise, the lvalue-to-rvalue conversion\iref{conv.lval}
+Otherwise, the \link{lvalue-to-rvalue conversion}{conv.lval}
 is performed if necessary,
 and \tcode{E} shall be a constant expression of type \tcode{bool}.
 The constraint is satisfied if and only if evaluation of \tcode{E}
@@ -1745,11 +1745,11 @@ A declaration's \defn{associated constraints} are defined as follows:
 the declaration has no associated constraints.
 
 \item Otherwise, if there is a single introduced \grammarterm{constraint-expression},
-the associated constraints are the normal form\iref{temp.constr.normal}
+the associated constraints are the \deflink{normal form}{temp.constr.normal}
 of that expression.
 
-\item Otherwise, the associated constraints are the normal form of a logical
-\logop{AND} expression\iref{expr.log.and} whose operands are in the
+\item Otherwise, the associated constraints are the normal form of a \link{logical
+\logop{AND} expression}{expr.log.and} whose operands are in the
 following order:
 \begin{itemize}
 \item
@@ -1846,7 +1846,7 @@ so it does match \#2.
 
 \pnum
 The \defnx{normal form}{normal form!constraint} of an \grammarterm{expression} \tcode{E} is
-a constraint\iref{temp.constr.constr} that is defined as follows:
+a \deflink{constraint}{temp.constr.constr} that is defined as follows:
 %
 \begin{itemize}
 \item
@@ -1855,7 +1855,7 @@ the normal form of \tcode{E}.
 
 \item
 The normal form of an expression \tcode{E1 || E2} is
-the disjunction\iref{temp.constr.op} of
+the \deflink{disjunction}{temp.constr.op} of
 the normal forms of \tcode{E1} and \tcode{E2}.
 
 \item
@@ -1977,7 +1977,7 @@ rules described in \ref{temp.constr.atomic}.
 \end{itemize}
 %
 \begin{example}
-Let $A$ and $B$ be atomic constraints\iref{temp.constr.atomic}.
+Let $A$ and $B$ be \deflinkx{atomic constraints}{atomic constraint}{temp.constr.atomic}.
 %
 The constraint $A \land B$ subsumes $A$, but $A$ does not subsume $A \land B$.
 %
@@ -1993,9 +1993,9 @@ This partial ordering is used to determine
 \begin{itemize}
 \item the best viable candidate of non-template functions\iref{over.match.best},
 \item the address of a non-template function\iref{over.over},
-\item the matching of template template arguments\iref{temp.arg.template},
-\item the partial ordering of class template specializations\iref{temp.class.order}, and
-\item the partial ordering of function templates\iref{temp.func.order}.
+\item the matching of \link{template template arguments}{temp.arg.template},
+\item the \link{partial ordering of class template specializations}{temp.class.order}, and
+\item the \link{partial ordering of function templates}{temp.func.order}.
 \end{itemize}
 \end{note}
 
@@ -2144,7 +2144,7 @@ declares \tcode{y} and \tcode{z} to be of the same type.
 \end{example}
 
 \pnum
-If an expression $e$ is type-dependent\iref{temp.dep.expr},
+If an expression $e$ is \link{type-dependent}{temp.dep.expr},
 \tcode{decltype($e$)}
 denotes a unique dependent type. Two such \grammarterm{decltype-specifier}{s}
 refer to the same type only if their \grammarterm{expression}{s} are
@@ -2171,7 +2171,7 @@ template<class T1, int I> void sort<T1, I>(T1 data[I]);         // error
 \end{codeblock}
 \end{example}
 \begin{note}
-However, this syntax is allowed in class template partial specializations\iref{temp.class.spec}.
+However, this syntax is allowed in \link{class template partial specializations}{temp.class.spec}.
 \end{note}
 
 \pnum
@@ -2200,8 +2200,8 @@ default arguments
 \grammarterm{requires-clause}{s},
 or
 \grammarterm{noexcept-specifier}{s}.
-For the purpose of instantiation, the substatements of a constexpr if
-statement\iref{stmt.if} are considered definitions.
+For the purpose of instantiation, the substatements of a
+\deflink{constexpr if}{stmt.if} statement are considered definitions.
 
 \pnum
 Because an \grammarterm{alias-declaration} cannot declare a
@@ -2556,7 +2556,7 @@ void S<T>::g(U) { }             // error: no matching function in \tcode{S<T>}
 
 \pnum
 A local class of non-closure type shall not have member templates.
-Access control rules\iref{class.access}
+\link{Access control rules}{class.access}
 apply to member template names.
 A destructor shall not be a member
 template.
@@ -2661,8 +2661,8 @@ conversion function template
 in a base class.
 
 \pnum
-Overload resolution\iref{over.ics.rank} and partial
-ordering\iref{temp.func.order} are used to select the best conversion function
+\link{Overload resolution}{over.ics.rank} and \link{partial
+ordering}{temp.func.order} are used to select the best conversion function
 among multiple
 specializations of conversion function templates
 and/or non-template
@@ -2776,7 +2776,7 @@ the \grammarterm{alignment-specifier} without the ellipsis.
 \item In a \grammarterm{capture-list}\iref{expr.prim.lambda.capture}; the pattern is
 the \grammarterm{capture} without the ellipsis.
 
-\item In a \tcode{sizeof...} expression\iref{expr.sizeof}; the pattern is an
+\item In a \link{\tcode{sizeof...} expression}{expr.sizeof}; the pattern is an
 \grammarterm{identifier}.
 
 \item In a \grammarterm{fold-expression}\iref{expr.prim.fold};
@@ -3071,8 +3071,8 @@ class A {
 
 \pnum
 A template friend declaration specifies that all specializations of that
-template, whether they are implicitly instantiated\iref{temp.inst}, partially
-specialized\iref{temp.class.spec} or explicitly specialized\iref{temp.expl.spec},
+template, whether they are \link{implicitly instantiated}{temp.inst}, \link{partially
+specialized}{temp.class.spec} or \link{explicitly specialized}{temp.expl.spec},
 are friends of the class containing the template friend declaration.
 \begin{example}
 \begin{codeblock}
@@ -3341,8 +3341,8 @@ template< int X > class A<X,&array> { };        // error
 
 \end{example}
 \item
-The specialization shall be more specialized than the primary
-template\iref{temp.class.order}.
+The specialization shall be \deflink{more specialized}{temp.class.order}
+than the primary template.
 
 \item
 The template parameter list of a specialization shall not contain default
@@ -3381,7 +3381,7 @@ If exactly one matching specialization is found, the instantiation is
 generated from that specialization.
 \item
 If more than one matching specialization is found,
-the partial order rules\iref{temp.class.order} are used to determine
+the \link{partial order rules}{temp.class.order} are used to determine
 whether one of the specializations is more specialized than the
 others.
 If none of the specializations is more specialized than all of the
@@ -3395,9 +3395,9 @@ primary template.
 \pnum
 A partial specialization matches a given actual template argument
 list if the template arguments of the partial specialization can be
-deduced from the actual template argument list\iref{temp.deduct},
-and the deduced template arguments satisfy the associated constraints
-of the partial specialization, if any\iref{temp.constr.decl}.
+\link{deduced}{temp.deduct} from the actual template argument list,
+and the deduced template arguments satisfy the \deflink{associated constraints}{temp.constr.decl}
+of the partial specialization, if any.
 \begin{example}
 \begin{codeblock}
 template<class T1, class T2, int I> class A             { };    // \#1
@@ -3459,14 +3459,14 @@ of the primary template.
 For two class template partial specializations,
 the first is \defn{more specialized} than the second if, given the following
 rewrite to two function templates, the first function template is more
-specialized than the second according to the ordering rules for function
-templates\iref{temp.func.order}:
+specialized than the second according to the \link{ordering rules for function
+templates}{temp.func.order}:
 
 \begin{itemize}
 \item
 Each of the two
 function templates has the same template parameters
-and associated constraints\iref{temp.constr.decl}
+and \deflink{associated constraints}{temp.constr.decl}
 as the corresponding partial specialization.
 \item
 Each function template
@@ -3637,7 +3637,7 @@ declarations of non-template functions do not merely guide
 overload resolution of
 function template specializations
 with the same name.
-If such a non-template function is odr-used\iref{basic.def.odr} in a program, it must be defined;
+If such a non-template function is \link{odr-used}{basic.def.odr} in a program, it must be defined;
 it will not be implicitly instantiated using the function template definition.}
 
 \rSec3[temp.over.link]{Function template overloading}
@@ -3672,8 +3672,8 @@ void h(int* p) {
 \end{example}
 
 \pnum
-Such specializations are distinct functions and do not violate the one-definition
-rule\iref{basic.def.odr}.
+Such specializations are distinct functions and do not violate the
+\link{one-definition rule}{basic.def.odr}.
 
 \pnum
 The signature of a function template
@@ -3724,7 +3724,7 @@ For example, a template type parameter can be used in the
 Two expressions involving template parameters are considered
 \defnx{equivalent}{equivalent!expressions}
 if two function definitions containing the expressions would satisfy
-the one-definition rule\iref{basic.def.odr}, except that the tokens used
+the \link{one-definition rule}{basic.def.odr}, except that the tokens used
 to name the template parameters may differ as long as a token used to
 name a template parameter in one expression is replaced by another token
 that names the same template parameter in the other expression.
@@ -3878,7 +3878,7 @@ template <int I> void f(A<I>, A<I+1+2+3+4>);
 \indextext{ordering!function template partial|see{template, function, partial ordering}}%
 If a function template is overloaded,
 the use of a function template specialization might be ambiguous because
-template argument deduction\iref{temp.deduct} may associate the function
+\link{template argument deduction}{temp.deduct} may associate the function
 template specialization with more than one function template declaration.
 \defnx{Partial ordering}{template!function!partial ordering}
 of overloaded function template declarations is used in the following contexts
@@ -3895,8 +3895,8 @@ function template
 specialization
 is selected to match a placement operator new~(\ref{basic.stc.dynamic.deallocation}, \ref{expr.new});
 \item
-when a friend function declaration\iref{temp.friend}, an
-explicit instantiation\iref{temp.explicit} or an explicit specialization\iref{temp.expl.spec} refers to
+when a \link{friend function declaration}{temp.friend}, an
+\link{explicit instantiation}{temp.explicit} or an \link{explicit specialization}{temp.expl.spec} refers to
 a function template specialization.
 \end{itemize}
 
@@ -3914,7 +3914,8 @@ the more constrained template (if one exists) as determined below.
 
 \pnum
 To produce the transformed template, for each type, non-type, or template
-template parameter (including template parameter packs\iref{temp.variadic}
+template parameter (including
+\deflinkx{template parameter packs}{template parameter pack}{temp.variadic}
 thereof) synthesize a unique type, value, or class template
 respectively and substitute it for each occurrence of that parameter
 in the function type of the template.
@@ -4263,7 +4264,7 @@ A \grammarterm{concept-definition}
 shall appear at namespace scope\iref{basic.scope.namespace}.
 
 \pnum
-A concept shall not have associated constraints\iref{temp.constr.decl}.
+A concept shall not have \deflink{associated constraints}{temp.constr.decl}.
 
 \pnum
 A concept is not instantiated\iref{temp.spec}.
@@ -4507,7 +4508,7 @@ The program is ill-formed, no diagnostic required, if:
 \begin{itemize}
 \item
 no valid specialization can be generated for a template
-or a substatement of a constexpr if statement\iref{stmt.if} within a template
+or a substatement of a \deflink{constexpr if}{stmt.if} statement within a template
 and the template is not instantiated, or
 \item
 no substitution of template arguments
@@ -4542,7 +4543,7 @@ was a pack expansion and the corresponding pack is empty, or
 \item an instantiation uses a default argument or default template argument
 that had not been defined at the point at which the template was defined, or
 
-\item constant expression evaluation\iref{expr.const} within the template
+\item \link{constant expression evaluation}{expr.const} within the template
 instantiation uses
   \begin{itemize}
   \item the value of a const object of integral or unscoped enumeration type or
@@ -4864,9 +4865,9 @@ if the name of the base class
 or the name of a member of the
 base class is the same as the name of a
 \grammarterm{template-parameter},
-the base class name or member name hides the
+the base class name or member name \link{hides}{basic.scope.hiding} the
 \grammarterm{template-parameter}
-name\iref{basic.scope.hiding}.
+name.
 \begin{example}
 \begin{codeblock}
 struct A {
@@ -4920,14 +4921,14 @@ denotes a
 if
 \begin{itemize}
 \item
-any of the expressions in the \grammarterm{expression-list} is a pack
-expansion\iref{temp.variadic},
+any of the expressions in the \grammarterm{expression-list} is a
+\deflink{pack expansion}{temp.variadic},
 \item
 any of the expressions
 or \grammarterm{braced-init-list}{s}
 in the
 \grammarterm{expression-list}
-is type-dependent\iref{temp.dep.expr}, or
+is \link{type-dependent}{temp.dep.expr}, or
 \item
 the \grammarterm{unqualified-id}
 is a \grammarterm{template-id} in which any of the template arguments depends
@@ -4969,7 +4970,7 @@ explicitly depend on the
 
 \pnum
 In the definition of a class or class template,
-the scope of a dependent base class\iref{temp.dep.type}
+the scope of a \deflinkx{dependent base class}{base class!dependent}{temp.dep.type}
 is not examined during unqualified
 name lookup either at the point of definition of the
 class template or member or during an instantiation of
@@ -5035,7 +5036,7 @@ if it is
 \item
 in the definition of a class template, a nested class of a class template,
 a member of a class template, or a member of a nested class of a class template,
-the injected-class-name\iref{class.pre} of the class template or nested class,
+the \deflink{injected-class-name}{class.pre} of the class template or nested class,
 \item
 in the definition of a primary class template
 or a member of a primary class template, the name of the
@@ -5065,9 +5066,9 @@ $n^\text{th}$
 template argument has the value of the
 $n^\text{th}$
 template parameter of the class template.
-If the $n^\text{th}$ template parameter is a template
-parameter pack\iref{temp.variadic}, the $n^\text{th}$ template argument is a pack
-expansion\iref{temp.variadic} whose pattern is the name of
+If the $n^\text{th}$ template parameter is a
+\deflink{template parameter pack}{temp.variadic}, the $n^\text{th}$ template argument is a
+\deflink{pack expansion}{temp.variadic} whose pattern is the name of
 the template parameter pack.
 
 \pnum
@@ -5186,10 +5187,10 @@ see below.
 \end{note}
 
 \item
-An \grammarterm{id-expression} denoting the member in a class member access
-expression\iref{expr.ref} for which the type of the object expression is the
-current instantiation, and the \grammarterm{id-expression}, when looked
-up\iref{basic.lookup.classref}, refers to at least one member of a class
+An \grammarterm{id-expression} denoting the member in a \link{class member access}{expr.ref}
+expression for which the type of the object expression is the
+current instantiation, and the \grammarterm{id-expression}, when \link{looked
+up}{basic.lookup.classref}, refers to at least one member of a class
 that is the current
 instantiation or a non-dependent base class thereof.
 \begin{note}
@@ -5240,8 +5241,8 @@ dependent base class, and name lookup of the \grammarterm{qualified-id} does not
 find any member of a class that is the current instantiation or a non-dependent
 base class thereof.
 
-\item An \grammarterm{id-expression} denoting the member in a class member access
-expression\iref{expr.ref} in which either
+\item An \grammarterm{id-expression} denoting the member in a
+\link{class member access}{expr.ref} expression in which either
 \begin{itemize}
 \item the type of the object expression is the current instantiation, the
 current instantiation has at least one dependent base class, and name lookup
@@ -5332,12 +5333,12 @@ in which either the template name is a template parameter or any of the
 template arguments is a dependent type or an expression that is type-dependent
 or value-dependent or is a pack expansion
 \begin{note}
-This includes an injected-class-name\iref{class.pre} of a class template
+This includes an \deflink{injected-class-name}{class.pre} of a class template
 used without a \grammarterm{template-argument-list}.
 \end{note}%
 , or
 \item denoted by \tcode{decltype(}\grammarterm{expression}{}\tcode{)},
-where \grammarterm{expression} is type-dependent\iref{temp.dep.expr}.
+where \grammarterm{expression} is \link{type-dependent}{temp.dep.expr}.
 \end{itemize}
 
 \pnum
@@ -5375,7 +5376,7 @@ an
 associated by name lookup with
 a non-type \grammarterm{template-parameter}
 declared with a type
-that contains a placeholder type\iref{dcl.spec.auto},
+that contains a \deflink{placeholder type}{dcl.spec.auto},
 \item
 an
 \grammarterm{identifier}
@@ -5388,7 +5389,7 @@ declarations of member functions of the current instantiation declared
 with a return type that contains a placeholder type,
 \item
 an \grammarterm{identifier} associated by name lookup with
-a structured binding declaration\iref{dcl.struct.bind} whose
+a \link{structured binding declaration}{dcl.struct.bind} whose
 \grammarterm{brace-or-equal-initializer} is type-dependent,
 \item
 the
@@ -5456,7 +5457,7 @@ see~\ref{support.types}.
 \end{note}
 
 \pnum
-A class member access expression\iref{expr.ref} is
+A \link{class member access expression}{expr.ref} is
 type-dependent if
 the expression refers to a member of the current instantiation and
 the type of the referenced member is dependent, or the class member access
@@ -5577,7 +5578,7 @@ An expression of the form \tcode{\&}\grammarterm{qualified-id} where the
 instantiation is value-dependent.
 An expression of the form \tcode{\&}\grammarterm{cast-expression}
 is also value-dependent if evaluating \grammarterm{cast-expression}
-as a core constant expression\iref{expr.const} succeeds and
+as a \deflinkx{core constant expression}{expression!core constant}{expr.const} succeeds and
 the result of the evaluation refers to a templated entity
 that is an object with static or thread storage duration or a member function.
 
@@ -5724,7 +5725,7 @@ within a translation unit.
 A specialization for any template may have points of instantiation in multiple
 translation units.
 If two different points of instantiation give a template specialization
-different meanings according to the one-definition rule\iref{basic.def.odr},
+different meanings according to the \link{one-definition rule}{basic.def.odr},
 the program is ill-formed, no diagnostic required.
 
 \rSec3[temp.dep.candidate]{Candidate functions}
@@ -6068,7 +6069,7 @@ of type
 
 \pnum
 If a function declaration acquired its function type through
-a dependent type\iref{temp.dep.type} without using the syntactic form of
+a \link{dependent type}{temp.dep.type} without using the syntactic form of
 a function declarator, the program is ill-formed.
 \begin{example}
 \begin{codeblock}
@@ -6138,7 +6139,7 @@ void g(D<int>* p, D<char>* pp, D<double>* ppp) {
 \end{codeblock}
 \end{example}
 If a class template has been declared, but not defined,
-at the point of instantiation\iref{temp.point},
+at the \link{point of instantiation}{temp.point},
 the instantiation yields an incomplete class type\iref{basic.types}.
 \begin{example}
 \begin{codeblock}
@@ -6148,7 +6149,7 @@ X<char> ch;         // error: incomplete type \tcode{X<char>}
 \end{example}
 \begin{note}
 Within a template declaration,
-a local class\iref{class.local} or enumeration and the members of
+a \link{local class}{class.local} or enumeration and the members of
 a local class are never considered to be entities that can be separately
 instantiated (this includes their default arguments,
 \grammarterm{noexcept-specifier}{s}, and non-static data member
@@ -6327,7 +6328,7 @@ void x() {
 \end{example}
 
 \pnum
-If the function selected by overload resolution\iref{over.match}
+If the function selected by \link{overload resolution}{over.match}
 can be determined without instantiating a class template definition,
 it is unspecified whether that instantiation actually takes place.
 \begin{example}
@@ -6644,8 +6645,8 @@ of that entity unless the explicit instantiation is preceded by an explicit
 specialization of the entity with the same template arguments.
 If the
 \grammarterm{declaration}
-of the explicit instantiation names an implicitly-declared special member
-function\iref{special}, the program is ill-formed.
+of the explicit instantiation names an implicitly-declared \link{special member
+function}{special}, the program is ill-formed.
 
 \pnum
 The \grammarterm{declaration} in an \grammarterm{explicit-instantiation} and
@@ -6768,7 +6769,7 @@ If an entity is the subject of both an explicit instantiation declaration
 and an explicit instantiation definition in the same translation unit, the
 definition shall follow the declaration. An entity that is the subject of an
 explicit instantiation declaration and that is also used
-in a way that would otherwise cause an implicit instantiation\iref{temp.inst}
+in a way that would otherwise cause an \link{implicit instantiation}{temp.inst}
 in the translation unit
 shall be the subject of an explicit instantiation definition somewhere in the
 program; otherwise the program is ill-formed, no diagnostic required.
@@ -7340,7 +7341,7 @@ in a friend declaration.
 \end{itemize}
 
 \pnum
-Trailing template arguments that can be deduced\iref{temp.deduct} or
+Trailing template arguments that can be \link{deduced}{temp.deduct} or
 obtained from default
 \grammarterm{template-argument}{s}
 may be omitted from the list of explicit
@@ -7799,7 +7800,7 @@ or array type.
 In the following example,
 assuming a \tcode{signed char}
 cannot represent the value 1000,
-a narrowing conversion\iref{dcl.init.list}
+a \deflink{narrowing conversion}{dcl.init.list}
 would be required
 to convert the \grammarterm{template-argument}
 of type \tcode{int} to \tcode{signed char},
@@ -7908,8 +7909,8 @@ is not a reference type:
 \item
 If
 \tcode{A}
-is an array type, the pointer type produced by the array-to-pointer
-standard conversion\iref{conv.array} is used in place of
+is an array type, the pointer type produced by the \link{array-to-pointer
+standard conversion}{conv.array} is used in place of
 \tcode{A}
 for type deduction;
 otherwise,
@@ -7917,7 +7918,7 @@ otherwise,
 If
 \tcode{A}
 is a function type, the pointer type produced by the
-function-to-pointer standard conversion\iref{conv.func} is used in place
+\link{function-to-pointer standard conversion}{conv.func} is used in place
 of
 \tcode{A}
 for type
@@ -8013,8 +8014,8 @@ The transformed \tcode{A}
 can be another pointer or pointer-to-member type that can be converted
 to the deduced
 \tcode{A}
-via a function pointer conversion\iref{conv.fctptr} and/or
-qualification conversion\iref{conv.qual}.
+via a \link{function pointer conversion}{conv.fctptr} and/or
+\link{qualification conversion}{conv.qual}.
 
 \item
 If
@@ -8157,7 +8158,7 @@ int main() {
 
 \pnum
 Template arguments can be deduced from the type specified when taking
-the address of an overloaded function\iref{over.over}.
+the address of an \link{overloaded function}{over.over}.
 If there is a target,
 the function template's function type and the target type
 are used as the types of
@@ -8169,7 +8170,7 @@ described in~\ref{temp.deduct.type}.
 Otherwise, deduction is performed with empty sets of types P and A.
 
 \pnum
-A placeholder type\iref{dcl.spec.auto} in the return type of a
+A \deflink{placeholder type}{dcl.spec.auto} in the return type of a
 function template is a non-deduced context. If template argument
 deduction succeeds for such a function, the return type is determined
 from instantiation of the function body.
@@ -8203,7 +8204,7 @@ is not a reference type:
 If
 \tcode{P}
 is an array type, the pointer type produced by the
-array-to-pointer standard conversion\iref{conv.array} is used in place of
+\link{array-to-pointer standard conversion}{conv.array} is used in place of
 \tcode{P}
 for type
 deduction; otherwise,
@@ -8211,7 +8212,7 @@ deduction; otherwise,
 If
 \tcode{P}
 is a function type, the pointer type produced by the
-function-to-pointer standard conversion\iref{conv.func} is used in place of
+\link{function-to-pointer standard conversion}{conv.func} is used in place of
 \tcode{P}
 for
 type deduction; otherwise,
@@ -8305,7 +8306,7 @@ after a function has been selected.}
 In the context of a call to a conversion function, the return types of
 the conversion function templates are used.
 \item
-In other contexts\iref{temp.func.order} the function template's function
+In \link{other contexts}{temp.func.order} the function template's function
 type is used.
 \end{itemize}
 
@@ -8788,7 +8789,7 @@ of $\texttt{P}_i$ is compared with each remaining argument in the
 template argument list of \tcode{A}. Each comparison deduces
 template arguments for subsequent positions in the template parameter
 packs expanded by $\texttt{P}_i$.
-During partial ordering\iref{temp.deduct.partial}, if $\texttt{A}_i$ was
+During \link{partial ordering}{temp.deduct.partial}, if $\texttt{A}_i$ was
 originally a pack expansion:
 \begin{itemize}
 \item if \tcode{P} does not contain a template argument corresponding to
@@ -8851,7 +8852,7 @@ each remaining parameter type in the parameter-type-list
 of \tcode{A}. Each comparison deduces template arguments for
 subsequent positions in the template parameter packs expanded by the
 function parameter pack.
-During partial ordering\iref{temp.deduct.partial}, if $\texttt{A}_i$ was
+During \link{partial ordering}{temp.deduct.partial}, if $\texttt{A}_i$ was
 originally a function parameter pack:
 \begin{itemize}
 \item if \tcode{P} does not contain a function parameter type corresponding to
@@ -9128,8 +9129,8 @@ int fv = f(g);                  // OK; \tcode{Types} contains \tcode{int}, \tcod
 In a declaration whose \grammarterm{declarator-id} refers to a specialization
 of a function template, template argument deduction is performed to identify
 the specialization to which the declaration refers. Specifically, this is done
-for explicit instantiations\iref{temp.explicit}, explicit specializations\iref{temp.expl.spec},
-and certain friend declarations\iref{temp.friend}. This is also done to
+for \link{explicit instantiations}{temp.explicit}, \link{explicit specializations}{temp.expl.spec},
+and certain \link{friend declarations}{temp.friend}. This is also done to
 determine whether a deallocation function template specialization matches a placement
 \tcode{operator new}~(\ref{basic.stc.dynamic.deallocation}, \ref{expr.new}).
 In all these cases, \tcode{P} is the type of the function template being considered

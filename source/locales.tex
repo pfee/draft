@@ -271,7 +271,7 @@ Whether there is one global locale object for the entire program or one global l
 object per thread is \impldef{whether locale object is global or per-thread}.
 Implementations should provide one global locale object per
 thread. If there is a single global locale object for the entire program,
-implementations are not required to avoid data races on it\iref{res.on.data.races}.
+implementations are not required to \link{avoid data races}{res.on.data.races} on it.
 
 \rSec3[locale.types]{Types}
 
@@ -1071,7 +1071,7 @@ namespace std {
 \pnum
 The type
 \tcode{mask}
-is a bitmask type\iref{bitmask.types}.
+is a \link{bitmask type}{bitmask.types}.
 
 \rSec3[locale.ctype]{Class template \tcode{ctype}}
 
@@ -1376,7 +1376,7 @@ value or values.\footnote{The char argument of
 is intended to accept values derived from \grammarterm{character-literal}s for conversion
 to the locale's encoding.}
 The only characters for which unique transformations are required
-are those in the basic source character set\iref{lex.charset}.
+are those in the \deflinkx{basic source character set}{character set!basic source}{lex.charset}.
 
 For any named
 \tcode{ctype}
@@ -1420,7 +1420,8 @@ values to the corresponding
 \tcode{char}
 value or values.
 
-For any character \tcode{c} in the basic source character set\iref{lex.charset}
+For any character \tcode{c} in the
+\deflinkx{basic source character set}{character set!basic source}{lex.charset}
 the transformation is such that
 \begin{codeblock}
 do_widen(do_narrow(c, 0)) == c
@@ -1767,8 +1768,8 @@ virtual const char* do_narrow(const char* low, const char* high,
 \pnum
 These functions are described identically as those members of the
 same name in the
-\tcode{ctype}
-class template\iref{locale.ctype.members}.
+\link{\tcode{ctype}
+class template}{locale.ctype.members}.
 
 \rSec3[locale.codecvt]{Class template \tcode{codecvt}}
 
@@ -3328,7 +3329,7 @@ The specializations required in \tref{locale.category.facets}\iref{locale.catego
 \tcode{collate<char>}
 and
 \tcode{collate<wchar_t>},
-apply lexicographic ordering\iref{alg.lex.comparison}.
+apply \link{lexicographic ordering}{alg.lex.comparison}.
 
 \pnum
 Each function compares a string of characters
@@ -3392,7 +3393,7 @@ The specializations required in \tref{locale.category.facets}\iref{locale.catego
 and
 \tcode{collate<wchar_t>},
 implement
-a lexicographical comparison\iref{alg.lex.comparison}.
+a \link{lexicographical comparison}{alg.lex.comparison}.
 \end{itemdescr}
 
 \indexlibrarymember{collate}{do_transform}%
@@ -5001,7 +5002,7 @@ namespace std {
 namespace std {
   struct lconv;
 
-  char* setlocale(int category, const char* locale);
+  char* @\libentity{setlocale}@(int category, const char* locale);
   lconv* localeconv();
 }
 

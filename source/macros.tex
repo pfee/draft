@@ -634,3 +634,51 @@
 }
 \newcommand{\defncontext}[1]{\textlangle#1\textrangle}
 \newenvironment{defnote}{\addtocounter{termnote}{1}\noteintro{Note \thetermnote{} to entry}}{\noteoutro{note}\space}
+
+
+%%-------------------------------------------------
+%% cxxdraft-htmlgen macros
+
+\newcommand{\link}[2]{#1~(#2)}
+	% Link to section.
+	%   arg 0: link text
+	%   arg 1: section abbreviation
+
+\newcommand{\linkx}[3]{#1~(#3)}
+	% Link to indexed position.
+	%   arg 0: link text
+	%   arg 1: generalindex key
+	%   arg 2: section abbreviation
+
+\newcommand{\liblinkx}[3]{#1~(#3)}
+	% Link to indexed position.
+	%   arg 0: link text
+	%   arg 1: libraryindex key
+	%   arg 2: section abbreviation
+
+\newcommand{\deflinkx}[3]{#1~(#3)}
+	% Link to definition.
+	%   arg 0: link text
+	%   arg 1: definition key
+	%   arg 2: section abbreviation
+
+\newcommand{\deflink}[2]{\deflinkx{#1}{#1}{#2}}
+	% Convenience macro for when the link
+	% text is also the definition key.
+
+\newcommand{\weblink}[2]{#1}
+	%   arg 0: link text
+	%   arg 1: URL
+
+\newcommand{\indexedspan}[2]{#1#2}
+	%   arg 0: text
+	%   arg 1: indices (zero or more \index commands)
+
+\newcommand{\libentity}[1]{\indexedspan{\tcode{#1}}{\indexlibrary{\idxcode{#1}}}}
+	%   arg 0: entity name
+
+\newcommand{\libmember}[2]{\indexedspan{\tcode{#1}}{\indexlibrarymember{#1}{#2}}}
+	%   arg 0: member name
+	%   arg 1: parent name
+
+\newenvironment{indexed}[1]{}{}

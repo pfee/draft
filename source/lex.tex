@@ -29,10 +29,10 @@
 \indextext{compilation!separate|(}%
 The text of the program is kept in units called
 \defnx{source files}{source file} in this document.
-A source file together with all the headers\iref{headers}
-and source files included\iref{cpp.include} via the preprocessing
+A source file together with all the \link{headers}{headers}
+and source files \link{included}{cpp.include} via the preprocessing
 directive \tcode{\#include}, less any source lines skipped by any of the
-conditional inclusion\iref{cpp.cond} preprocessing directives, is
+\link{conditional inclusion}{cpp.cond} preprocessing directives, is
 called a \defn{translation unit}.
 \begin{note}
 A \Cpp{} program need not all be translated at the same time.
@@ -47,8 +47,8 @@ example)
 calls to functions whose identifiers have external or module linkage,
 manipulation of objects whose identifiers have external or module linkage, or
 manipulation of data files. Translation units can be separately
-translated and then later linked to produce an executable
-program\iref{basic.link}.
+translated and then later \link{linked}{basic.link} to produce an executable
+program.
 \end{note}
 \indextext{compilation!separate|)}
 
@@ -71,8 +71,8 @@ indicators) if necessary.
 The set of physical source file characters accepted is \impldef{physical source file
 characters}.
 Any
-source file character not in the basic source character
-set\iref{lex.charset} is replaced by the
+source file character not in the
+\deflink{basic source character set}{lex.charset} is replaced by the
 \indextext{universal character name}\grammarterm{universal-character-name} that
 designates that character. An implementation may use any internal
 encoding, so long as an actual extended character encountered in the
@@ -97,8 +97,8 @@ backslash character before any such splicing takes place,
 shall be processed as if an additional new-line character were appended
 to the file.
 
-\item The source file is decomposed into preprocessing
-tokens\iref{lex.pptoken} and sequences of white-space characters
+\item The source file is decomposed into \link{preprocessing
+tokens}{lex.pptoken} and sequences of white-space characters
 (including comments). A source file shall not end in a partial
 preprocessing token or in a partial comment.\footnote{A partial preprocessing
 token would arise from a source file
@@ -121,8 +121,8 @@ directive.
 \item Preprocessing directives are executed, macro invocations are
 expanded, and \tcode{_Pragma} unary operator expressions are executed.
 If a character sequence that matches the syntax of a
-\grammarterm{universal-character-name} is produced by token
-concatenation\iref{cpp.concat}, the behavior is undefined. A
+\grammarterm{universal-character-name} is produced by \link{token
+concatenation}{cpp.concat}, the behavior is undefined. A
 \tcode{\#include} preprocessing directive causes the named header or
 source file to be processed from phase 1 through phase 4, recursively.
 All preprocessing directives are then deleted.
@@ -311,7 +311,7 @@ are locale-specific.%
 \end{bnf}
 
 \pnum
-Each preprocessing token that is converted to a token\iref{lex.token}
+Each preprocessing token that is converted to a \link{token}{lex.token}
 shall have the lexical form of a keyword, an identifier, a literal,
 or an operator or punctuator.
 
@@ -329,7 +329,7 @@ separated by
 \indextext{space!white}%
 white space;
 \indextext{comment}%
-this consists of comments\iref{lex.comment}, or white-space
+this consists of \link{comments}{lex.comment}, or white-space
 characters (space, horizontal tab, new-line, vertical tab, and
 form-feed), or both. As described in \ref{cpp}, in certain
 circumstances during translation phase 4, white space (or the absence
@@ -432,7 +432,7 @@ keywords are colloquially known as ``digraphs''. }
 
 \pnum
 In all respects of the language, each alternative token behaves the
-same, respectively, as its primary token, except for its spelling.\footnote{Thus the ``stringized'' values\iref{cpp.stringize} of
+same, respectively, as its primary token, except for its spelling.\footnote{Thus the \link{``stringized''}{cpp.stringize} values of
 \tcode{[} and \tcode{<:} will be different, maintaining the source
 spelling, but the tokens can otherwise be freely interchanged. }
 The set of alternative tokens is defined in
@@ -914,7 +914,7 @@ are converted into tokens for operators and punctuators:
 \end{bnf}
 
 Each \grammarterm{operator-or-punctuator} is converted to a single token
-in translation phase 7\iref{lex.phases}.%
+in \link{translation phase 7}{lex.phases}.%
 \indextext{punctuator|)}%
 \indextext{operator|)}
 
@@ -1894,12 +1894,12 @@ The syntactic non-terminal preceding the \grammarterm{ud-suffix} in a
 characters that could match that non-terminal.
 
 \pnum
-A \grammarterm{user-defined-literal} is treated as a call to a literal operator or
-literal operator template\iref{over.literal}. To determine the form of this call for a
+A \grammarterm{user-defined-literal} is treated as a call to a \deflinkx{literal operator}{literal!operator}{over.literal} or
+\deflinkx{literal operator template}{literal!operator!template}{over.literal}. To determine the form of this call for a
 given \grammarterm{user-defined-literal} \placeholder{L} with \grammarterm{ud-suffix} \placeholder{X},
 the \grammarterm{literal-operator-id} whose literal suffix identifier is \placeholder{X} is
-looked up in the context of \placeholder{L} using the rules for unqualified name
-lookup\iref{basic.lookup.unqual}. Let \placeholder{S} be the set of declarations found by
+looked up in the context of \placeholder{L} using the rules for \link{unqualified name
+lookup}{basic.lookup.unqual}. Let \placeholder{S} be the set of declarations found by
 this lookup. \placeholder{S} shall not be empty.
 
 \pnum
@@ -1974,7 +1974,7 @@ operator "" @\placeholder{X}@(@\placeholder{str}{}@, @\placeholder{len}{}@)
 \pnum
 If \placeholder{L} is a \grammarterm{user-defined-character-literal}, let \placeholder{ch} be the
 literal without its \grammarterm{ud-suffix}.
-\placeholder{S} shall contain a literal operator\iref{over.literal} whose only parameter has
+\placeholder{S} shall contain a \deflink{literal operator}{over.literal} whose only parameter has
 the type of \placeholder{ch} and the
 literal \placeholder{L} is treated as a call
 of the form
