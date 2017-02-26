@@ -4890,7 +4890,8 @@ template<class B, class a> struct X : A {
 Inside a template, some constructs have semantics which may differ from one
 instantiation to another.
 Such a construct
-\defnx{depends}{name!dependent}
+%\defnx{depends}{name!dependent} <--- same index key as 28 lines down
+depends
 on the template parameters.
 In particular, types and expressions may depend on the type
 and/or
@@ -8415,7 +8416,7 @@ at least as specialized as the argument type.
 \pnum
 \indextext{at least as specialized as|see{more specialized}}%
 Function template \tcode{F}
-is \defnx{at least as specialized as}{more specialized}
+is \textit{at least as specialized as}
 function template \tcode{G} if,
 for each pair of types used to determine the ordering,
 the type from \tcode{F}
