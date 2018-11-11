@@ -357,6 +357,8 @@
 %% Produces 9 output characters.
 \newcommand{\commentellip}{\tcode{/* ...\ */}}
 
+\newcommand{\noncxxtcode}[1]{\tcode{#1}}
+
 %% Concepts
 \newcommand{\oldconceptname}[1]{Cpp17#1}
 \newcommand{\oldconcept}[1]{\textit{\oldconceptname{#1}}}
@@ -379,7 +381,7 @@
 \newcommand{\defexposconcept}[1]{\ecname{#1}\indexconcept{\idxexposconcept{#1}|idxbfpage}}
 
 %% Ranges
-\newcommand{\Range}[4]{\tcode{#1#3,\penalty2000{} #4#2}}
+\newcommand{\Range}[4]{\noncxxtcode{#1}\tcode{#3,\penalty2000{} #4}\noncxxtcode{#2}}
 \newcommand{\crange}[2]{\Range{[}{]}{#1}{#2}}
 \newcommand{\brange}[2]{\Range{(}{]}{#1}{#2}}
 \newcommand{\orange}[2]{\Range{(}{)}{#1}{#2}}
