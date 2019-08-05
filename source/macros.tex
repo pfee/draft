@@ -638,6 +638,12 @@
 \newenvironment{defnote}{\addtocounter{termnote}{1}\noteintro{Note \thetermnote{} to entry}}{\noteoutro{note}\space}
 
 
+% FIXME: For now, keep the format grammar productions out of the index, since
+% they conflict with the main grammar.
+% Consider renaming these en masse (to fmt-* ?) to avoid this problem.
+\newcommand{\fmtnontermdef}[1]{{\BnfNontermshape#1\itcorr}\textnormal{:}}
+\newcommand{\fmtgrammarterm}[1]{\gterm{#1}}
+
 %%-------------------------------------------------
 %% cxxdraft-htmlgen macros
 
