@@ -5420,7 +5420,6 @@ specified by the
 or
 \grammarterm{new-type-id}
 is dependent, even if any subexpression is type-dependent:
-
 \begin{ncsimplebnf}
 simple-type-specifier \terminal{(} \opt{expression-list} \terminal{)}\br
 \opt{\terminal{::}} \keyword{new} \opt{new-placement} new-type-id \opt{new-initializer}\br
@@ -5435,7 +5434,6 @@ simple-type-specifier \terminal{(} \opt{expression-list} \terminal{)}\br
 \pnum
 Expressions of the following forms are never type-dependent (because the type
 of the expression cannot be dependent):
-
 \begin{ncsimplebnf}
 literal\br
 \keyword{sizeof} unary-expression\br
@@ -5529,7 +5527,6 @@ Expressions of the following form are value-dependent if the
 is type-dependent or the
 \grammarterm{type-id}
 is dependent:
-
 \begin{ncsimplebnf}
 \keyword{sizeof} unary-expression\br
 \keyword{sizeof} \terminal{(} type-id \terminal{)}\br
@@ -5554,7 +5551,6 @@ is dependent or the
 or
 \grammarterm{cast-expression}
 is value-dependent:
-
 \begin{ncsimplebnf}
 simple-type-specifier \terminal{(} \opt{expression-list} \terminal{)}\br
 \keyword{static_cast} \terminal{<} type-id \terminal{>} \terminal{(} expression \terminal{)}\br
@@ -5565,7 +5561,6 @@ simple-type-specifier \terminal{(} \opt{expression-list} \terminal{)}\br
 
 \pnum
 Expressions of the following form are value-dependent:
-
 \begin{ncsimplebnf}
 \keyword{sizeof} \terminal{...} \terminal{(} identifier \terminal{)}\br
 fold-expression
